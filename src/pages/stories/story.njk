@@ -32,10 +32,10 @@ permalink: "/stories/{{ story.slug }}/index.html"
           <img 
             class="w-full h-auto object-cover rounded-lg"
             src="/assets/images_cropped/{{ story.slug }}/{{ img.filename }}"
-            alt="{{ photo.alt_text | default(row.reason) }}"
+            alt="{{ photo.alt_text }}"
           >
           {% if photo.reason %}
-            <p class="text-sm text-gray-600 italic mt-2">{{ photo.reason }}</p>
+            <p class="text-sm text-gray-600 italic mt-2">{{ photo.alt_text }}</p>
           {% endif %}
         </div>
       {% endfor %}

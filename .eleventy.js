@@ -13,8 +13,14 @@ module.exports = function(eleventyConfig) {
       ) || {}
     );
   });
-  
-  
+
+  eleventyConfig.addCollection("stories", collection => {
+    return collection.getAll().filter(item =>
+      item.data.layout === "layout.njk" &&
+      item.data.story && // from pagination alias
+      item.url.startsWith("/stories/")
+    );
+  });
 
   return {
     dir: {
