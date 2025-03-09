@@ -3,7 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }}</title>
+    <title>{{ title or story.title | striptags }} | Batlounis</title>
+    <meta name="description" content="{{ description or story.description or 'Default site description.' }}">
+    <meta property="og:title" content="{{ title or story.title | striptags }} | Batlounis" />
+    <meta property="og:description" content="{{ description or story.description or 'Default site description.' }}" />
+    <meta property="og:url" content="https://batlounis.com{{ page.url }}" />
+    <meta property="og:type" content="article" />
+
+    {# <meta property="og:image" content="https://batlounis.com/assets/images_cropped/{{ story.slug }}/{{ image }}" /> #}
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ title or story.title | striptags }} | Batlounis" />
+    <meta name="twitter:description" content="{{ description or story.description or 'Default site description.' }}" />
+    {# <meta name="twitter:image" content="https://batlounis.com/assets/images_cropped/{{ story.slug }}/{{ firstImage.filename }}" /> #}
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gradient-to-b from-gray-100 to-white text-gray-900">

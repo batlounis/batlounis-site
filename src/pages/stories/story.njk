@@ -1,6 +1,4 @@
 ---
-title: "Batlounis"
-subtitle: ""
 layout: "layout.njk"
 
 pagination:
@@ -10,6 +8,7 @@ pagination:
   addAllPagesToCollections: true
 permalink: "/stories/{{ story.slug }}/index.html"
 ---
+
 
 <main class="text-center mt-16 px-6">
   <p class="text-sm tracking-widest text-gray-600 uppercase">{{ subtitle }}</p>
@@ -34,7 +33,7 @@ permalink: "/stories/{{ story.slug }}/index.html"
             src="/assets/images_cropped/{{ story.slug }}/{{ img.filename }}"
             alt="{{ photo.alt_text }}"
           >
-          {% if photo.reason %}
+          {% if photo.alt_text %}
             <p class="text-sm text-gray-600 italic mt-2">{{ photo.alt_text }}</p>
           {% endif %}
         </div>

@@ -1,72 +1,31 @@
 ---
-title: "Batlounis"
-subtitle: ""
-heading: "DRAMATIC CLOUDS<br>AND LANDSCAPES"
-description: "Immerse yourself in a stunning collection where clouds take center stage. From moody skies above golden fields to dramatic storm clouds over modern architecture."
+title: "Stories"
 layout: "layout.njk"
+permalink: "/index.html"
 ---
 
-<div class="flex space-x-4">
-    <div class="w-[100.0%]">
-        <img class="w-full h-auto object-cover rounded-lg" src="/assets/images/clouds/IMG_9707.jpeg" alt="A stunning autumn lake reflection with colorful foliage and a tranquil water surface.">
-    </div>
-</div>
-<div class="flex space-x-4">
-    <div class="w-[51.32%]">
-        <img class="w-full h-auto object-cover rounded-lg" src="/assets/images/clouds/_DSC2223_Original.jpeg" alt="A person standing on a rocky shore at sunset, gazing at the calm sea under a pink and blue sky.">
-    </div>
-    <div class="w-[48.68%]">
-        <img class="w-full h-auto object-cover rounded-lg" src="/assets/images/clouds/_DSC2270_Original.jpeg" alt="A lone hiker walking through a desert landscape with scattered shrubs under a vast blue sky.">
-    </div>
-</div>
-<div class="flex space-x-4">
-    <div class="w-[37.38%]">
-        <img class="w-full h-auto object-cover rounded-lg" src="/assets/images/clouds/_DSC8048.jpeg" alt="A silhouetted hiker climbing a grassy hill with a dramatic cloud in the background.">
-    </div>
-    <div class="w-[27.44%]">
-        <img class="w-full h-auto object-cover rounded-lg" src="/assets/images/clouds/_DSC8218_Original.jpeg" alt="A rugged mountain landscape partially covered by thick dramatic clouds.">
-    </div>
-    <div class="w-[35.18%]">
-        <img class="w-full h-auto object-cover rounded-lg" src="/assets/images/clouds/_DSC2700_Original.jpeg" alt="A sloping mountain landscape under a pastel-colored sky, dotted with small trees.">
-    </div>
-</div>
-<div class="flex space-x-4">
-    <div class="w-[56.23%]">
-        <img class="w-full h-auto object-cover rounded-lg" src="/assets/images/clouds/_DSC9445_Original.jpeg" alt="A cityscape at dusk with a fiery red sky over the skyline and illuminated buildings.">
-    </div>
-    <div class="w-[43.77%]">
-        <img class="w-full h-auto object-cover rounded-lg" src="/assets/images/clouds/IMG_20200622_200917.jpeg" alt="A city river at sunset, featuring a bridge and skyline in golden light.">
-    </div>
-</div>
-<div class="flex space-x-4">
-    <div class="w-[100.0%]">
-        <img class="w-full h-auto object-cover rounded-lg" src="/assets/images/clouds/IMG_20200907_103704.jpeg" alt="A vast golden field under a moody blue sky stretching into the horizon.">
-    </div>
-</div>
-<div class="flex space-x-4">
-    <div class="w-[35.94%]">
-        <img class="w-full h-auto object-cover rounded-lg" src="/assets/images/clouds/IMG_20200907_113318.jpeg" alt="A lone tree standing in a golden field with a dramatic cloudy sky.">
-    </div>
-    <div class="w-[64.06%]">
-        <img class="w-full h-auto object-cover rounded-lg" src="/assets/images/clouds/IMG_20200908_123421.jpeg" alt="A calm lake reflecting a cloudy sky in a minimalist, almost monochrome composition.">
-    </div>
-</div>
-<div class="flex space-x-4">
-    <div class="w-[27.24%]">
-        <img class="w-full h-auto object-cover rounded-lg" src="/assets/images/clouds/IMG_20200810_200931-EFFECTS.jpeg" alt="A futuristic building with domed rooftops under a pastel sunset sky.">
-    </div>
-    <div class="w-[41.1%]">
-        <img class="w-full h-auto object-cover rounded-lg" src="/assets/images/clouds/IMG_20200810_201521.jpeg" alt="A curved stone building against a dynamic sky with golden-hour clouds.">
-    </div>
-    <div class="w-[31.66%]">
-        <img class="w-full h-auto object-cover rounded-lg" src="/assets/images/clouds/IMG_20200731_192727.jpeg" alt="A cyclist crossing a geometric red bridge under a dramatic sky.">
-    </div>
-</div>
-<div class="flex space-x-4">
-    <div class="w-[65.77%]">
-        <img class="w-full h-auto object-cover rounded-lg" src="/assets/images/clouds/IMG_20200917_063006_601_Original.jpeg" alt="A long road leading into an open field under an overcast sky.">
-    </div>
-    <div class="w-[34.23%]">
-        <img class="w-full h-auto object-cover rounded-lg" src="/assets/images/clouds/IMG_20200928_174023_340_Original.jpeg" alt="A black-and-white image of a modern architectural structure extending into the sky.">
-    </div>
-</div>
+<section class="px-4 max-w-6xl mx-auto mt-16">
+  <h1 class="text-4xl font-bold text-center mb-12">All Stories</h1>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+    {% for page in collections.stories %}
+      {% set slug = page.data.story.slug %}
+      {% set gridRows = grid | filterBySlug(slug) %}
+      {% set firstImage = gridRows[0] and gridRows[0].images[0] %}
+      {% set photo = images | findPhotoByFile(slug, firstImage.filename) %}
+      
+      <a href="{{ page.url }}" class="block group">
+        <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-md">
+          <img
+            class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+            src="/assets/images_cropped/{{ slug }}/{{ firstImage.filename }}"
+            alt="{{ photo.alt_text | default(page.data.story.title) }}"
+          >
+        </div>
+        <h2 class="mt-4 text-lg font-semibold text-center">
+          {{ page.data.story.title | safe}}
+        </h2>
+      </a>
+    {% endfor %}
+  </div>
+</section>

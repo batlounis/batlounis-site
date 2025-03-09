@@ -1,6 +1,7 @@
 module.exports = function(eleventyConfig) {
   // 👇 This tells Eleventy: from inside 'src/pages', go up to 'src/assets'
   eleventyConfig.addPassthroughCopy({"src/assets":"assets"});
+  eleventyConfig.addPassthroughCopy({ ".nojekyll": ".nojekyll" });
 
   eleventyConfig.addFilter("filterBySlug", (array, slug) => {
     return array.filter(item => item.story_slug === slug);
