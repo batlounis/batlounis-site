@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 const { imageSize } = require('image-size');
 
-const imageBasePath = path.join(__dirname, '..', 'assets', 'images');
+const imageBasePath = path.join(__dirname, '..', 'assets', 'images_cropped');
 
 module.exports = async () => {
   const raw = await csv().fromFile(path.join(__dirname, 'grid.csv'));

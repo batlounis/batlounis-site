@@ -6,6 +6,16 @@ module.exports = function(eleventyConfig) {
     return array.filter(item => item.story_slug === slug);
   });
 
+  eleventyConfig.addFilter("findPhotoByFile", (photos, storySlug, fileName) => {
+    return (
+      photos.find(
+        photo => photo.story_slug === storySlug && photo.file_name === fileName
+      ) || {}
+    );
+  });
+  
+  
+
   return {
     dir: {
       input: "src/pages",

@@ -9,7 +9,6 @@ pagination:
   alias: story
   addAllPagesToCollections: true
 permalink: "/stories/{{ story.slug }}/index.html"
-
 ---
 
 <main class="text-center mt-16 px-6">
@@ -25,17 +24,21 @@ permalink: "/stories/{{ story.slug }}/index.html"
 <section class="space-y-4 mt-16 px-4 max-w-6xl mx-auto">
   {% set storyGrid = grid | filterBySlug(story.slug) %}
   
-    {% for row in storyGrid %}
+  {% for row in storyGrid %}
     <div class="flex space-x-4">
-        {% for img in row.images %}
+      {% for img in row.images %}
+        {% set photo = images | findPhotoByFile(story.slug, img.filename) %}
         <div class="w-[{{ img.widthPercent }}%]">
-            <img 
+          <img 
             class="w-full h-auto object-cover rounded-lg"
-            src="/assets/images/{{ story.slug }}/{{ img.filename }}"
-            alt="{{ row.reason }}"
-            >
+            src="/assets/images_cropped/{{ story.slug }}/{{ img.filename }}"
+            alt="{{ photo.alt_text | default(row.reason) }}"
+          >
+          {% if photo.reason %}
+            <p class="text-sm text-gray-600 italic mt-2">{{ photo.reason }}</p>
+          {% endif %}
         </div>
-        {% endfor %}
+      {% endfor %}
     </div>
-    {% endfor %}
+  {% endfor %}
 </section>
