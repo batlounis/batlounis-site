@@ -1,0 +1,41 @@
+---
+title: "Batlounis"
+subtitle: ""
+layout: "layout.njk"
+
+pagination:
+  data: stories
+  size: 1
+  alias: story
+  addAllPagesToCollections: true
+permalink: "/stories/{{ story.slug }}/index.html"
+
+---
+
+<main class="text-center mt-16 px-6">
+  <p class="text-sm tracking-widest text-gray-600 uppercase">{{ subtitle }}</p>
+  <h2 class="text-5xl md:text-6xl tracking-tight font-bold mt-4">
+      {{ story.title | safe }}
+  </h2>
+  <p class="mt-2 text-base tracking-tight text-black max-w-md mx-auto leading-snug">
+      {{ story.description | safe }}
+  </p>
+</main>
+
+<section class="space-y-4 mt-16 px-4 max-w-6xl mx-auto">
+  {% set storyGrid = grid | filterBySlug(story.slug) %}
+  
+    {% for row in storyGrid %}
+    <div class="flex space-x-4">
+        {% for img in row.images %}
+        <div class="w-[{{ img.widthPercent }}%]">
+            <img 
+            class="w-full h-auto object-cover rounded-lg"
+            src="/assets/images/{{ story.slug }}/{{ img.filename }}"
+            alt="{{ row.reason }}"
+            >
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</section>

@@ -1,12 +1,17 @@
 module.exports = function(eleventyConfig) {
-  // Copy assets (images, CSS)
-  eleventyConfig.addPassthroughCopy("src/assets");
+  // 👇 This tells Eleventy: from inside 'src/pages', go up to 'src/assets'
+  eleventyConfig.addPassthroughCopy({"src/assets":"assets"});
+
+  eleventyConfig.addFilter("filterBySlug", (array, slug) => {
+    return array.filter(item => item.story_slug === slug);
+  });
 
   return {
     dir: {
-      input: "src",
-      output: "docs",  // GitHub Pages will use this
-      includes: "_includes"
+      input: "src/pages",
+      includes: "../_includes",
+      data: "../data",
+      output: "docs"
     }
   };
 };
