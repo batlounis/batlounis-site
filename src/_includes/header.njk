@@ -1,9 +1,12 @@
 <header class="flex flex-col md:flex-row md:justify-between md:items-center p-6 space-y-4 md:space-y-0">
     <div>
         <span class="text-xl font-bold mr-1"><a href="/">Batlounis.</a></span>
+        
+        {% if not hide_tagline %}
         <span class="text-sm tracking-widest text-gray-600 uppercase block md:inline">
             Stock photos with a unique perspective.
         </span>
+        {% endif %}
     </div>
 
     <nav class="space-x-6 hidden md:block">

@@ -5,22 +5,27 @@ document.addEventListener("DOMContentLoaded", () => {
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
     const closeBtn = document.getElementById("lightbox-close");
-
+   
     document.querySelectorAll('.lightbox-trigger').forEach(trigger => {
-      trigger.addEventListener('click', (e) => {
-        e.preventDefault();
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        const caption = document.getElementById('lightbox-caption');
+      trigger.addEventListener('click', function () {
+        const croppedSrc = this.getAttribute('data-cropped-src');
+        const originalSrc = this.getAttribute('data-original-src');
+        const altText = this.getAttribute('data-alt') || '';
+        const filename = this.getAttribute('data-filename') || '';
     
-        const src = trigger.getAttribute('data-src');
-        const alt = trigger.getAttribute('data-alt') || '';
+        const urlParams = new URLSearchParams(window.location.search);
+        const isDev = urlParams.get('dev') === 'true';
     
-        lightboxImg.src = src;
-        lightboxImg.alt = alt;
-        caption.textContent = alt;
+        // Choose which image to show based on dev mode
+        const imgToShow = isDev ? originalSrc : croppedSrc;
     
-        lightbox.classList.remove('hidden');
+        document.getElementById('lightbox-img').src = imgToShow;
+    
+        // Caption includes filename in dev mode
+        document.getElementById('lightbox-caption').textContent =
+          isDev ? `${filename} — ${altText}` : altText;
+    
+        document.getElementById('lightbox').classList.remove('hidden');
       });
     });
 
@@ -35,4 +40,16 @@ document.addEventListener("DOMContentLoaded", () => {
         lightboxImg.src = "";
       }
     });
+
+    
+
+  // Show captions in dev mode, in the gird
+  const urlParams = new URLSearchParams(window.location.search);
+  const isDev = urlParams.get('dev') === 'true';
+  if (isDev) {
+    document.querySelectorAll('.grid-caption').forEach(p => {
+      p.classList.remove('hidden');
+    });
+  }
+
   });

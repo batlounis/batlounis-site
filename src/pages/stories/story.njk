@@ -29,18 +29,20 @@ permalink: "/stories/{{ story.slug }}/index.html"
         {% set photo = images | findPhotoByFile(story.slug, img.filename) %}
         <div class="w-[{{ img.widthPercent }}%]">
           <a 
-              href="#!" 
-              class="lightbox-trigger" 
-              data-src="/assets/images_cropped/{{ story.slug }}/{{ img.filename }}"
-              data-alt="{{ photo.alt_text | escape }}">
+            href="#!" 
+            class="lightbox-trigger" 
+            data-cropped-src="/assets/images_cropped/{{ story.slug }}/{{ img.filename }}"
+            data-original-src="/assets/images/{{ story.slug }}/{{ img.filename }}"
+            data-filename="{{ img.filename }}"
+            data-alt="{{ photo.alt_text | escape }}">
             <img 
               class="w-full h-auto object-cover rounded-md cursor-zoom-in shadow-md"
               src="/assets/images_cropped/{{ story.slug }}/{{ img.filename }}"
               alt="{{ photo.alt_text }}"
             >
           </a>
-          {% if false and photo.alt_text %}
-            <p class="text-sm text-gray-600 italic mt-2">{{ photo.alt_text }}</p>
+          {% if photo.alt_text %}
+            <p class="grid-caption text-sm text-gray-600 italic mt-2 hidden">{{ photo.alt_text }}</p>
           {% endif %}
         </div>
       {% endfor %}

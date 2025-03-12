@@ -2,19 +2,22 @@
 title: "Stories"
 layout: "layout.njk"
 permalink: "/index.html"
+hide_tagline: true
 ---
 
-
 <main class="text-center mt-16 px-6">
-  <h2 class="text-5xl md:text-6xl tracking-tight font-bold mt-4">
-      Hey, I'm Salim!
+  <p class="text-sm tracking-widest text-gray-500 uppercase mb-4">Authentic stock photos & uncommon perspectives</p>
+
+  <h2 class="text-5xl md:text-6xl tracking-tight font-bold">
+    Hey, I'm Salim!
   </h2>
   
-  <p class="mt-6 text-left text-base tracking-tight text-black max-w-lg mx-auto leading-snug">
-      Step into a curated world of unique stock photography where everyday scenes meet thoughtful storytelling. From vibrant home-cooked dishes to quiet travel details, my collection celebrates authenticity, diversity, and the beauty of the unscripted. 
+  <p class="mt-6 text-left text-base tracking-tight text-black max-w-md mx-auto leading-relaxed">
+    Step into a curated world of unique stock photography where everyday scenes meet thoughtful storytelling. 
   </p>
-
-  <p class="mt-12 text-sm tracking-widest text-gray-600 uppercase">Authentic Moments & Uncommon Perspectives</p>
+  <p class="mt-4 text-left text-base tracking-tight text-black max-w-md mx-auto leading-relaxed">
+    From vibrant home-cooked dishes to quiet travel details, my collection celebrates authenticity, diversity, and the beauty of the unscripted. 
+  </p>
 </main>
 
 <section class="px-4 max-w-6xl mx-auto mt-16">
@@ -33,15 +36,17 @@ permalink: "/index.html"
             alt="{{ photo.alt_text | default(page.data.story.title) }}"
           >
         </div>
-        <h2 class="mt-4 text-lg font-semibold text-center">
-          {{ page.data.story.title | safe}}
-        </h2>
+        <p class="mt-3 text-base text-gray-800 text-center leading-snug">
+          {{ page.data.story.title | safe }}
+        </p>
       </a>
     {% endfor %}
   </div>
 </section>
 
 
-  <p class="mt-12 mb-12 text-left text-base tracking-tight text-black max-w-lg mx-auto leading-snug">
-      Whether you're looking for striking compositions or subtle emotions, you'll find visuals here that go beyond cliché. Made with curiosity, crafted with care.
+<section class="bg-gray mt-24 py-12 px-6">
+  <p class="text-center text-base tracking-tight text-gray-700 max-w-xl mx-auto leading-relaxed">
+    Whether you're looking for striking compositions or subtle emotions, you'll find visuals here that go beyond cliché. Made with curiosity, crafted with care.
   </p>
+</section>
