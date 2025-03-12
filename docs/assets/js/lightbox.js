@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
     buyBtn.addEventListener('click', () => {
       if (typeof gtag === 'function') {
         gtag('event', 'click_buy_license', {
-          event_category: 'Conversion',
+          event_category: 'Lead',
           event_label: currentFilename || 'unknown'
         });
       }
