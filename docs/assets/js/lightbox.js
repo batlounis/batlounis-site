@@ -12,6 +12,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const originalSrc = this.getAttribute('data-original-src');
         const altText = this.getAttribute('data-alt') || '';
         const filename = this.getAttribute('data-filename') || '';
+
+        // GA event
+        if (typeof gtag === 'function') {
+          gtag('event', 'click_photo', {
+            event_category: 'Photo',
+            event_label: filename
+          });
+        }
     
         const urlParams = new URLSearchParams(window.location.search);
         const isDev = urlParams.get('dev') === 'true';
@@ -45,8 +53,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    
-
   // Show captions in dev mode, in the gird
   const urlParams = new URLSearchParams(window.location.search);
   const isDev = urlParams.get('dev') === 'true';
@@ -57,3 +63,15 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   });
+
+  const buyBtn = document.getElementById('lightbox-buy');
+  if (buyBtn) {
+    buyBtn.addEventListener('click', () => {
+      if (typeof gtag === 'function') {
+        gtag('event', 'click_buy_license', {
+          event_category: 'Conversion',
+          event_label: currentFilename || 'unknown'
+        });
+      }
+    });
+  }
