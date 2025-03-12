@@ -6,12 +6,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const lightboxImg = document.getElementById("lightbox-img");
     const closeBtn = document.getElementById("lightbox-close");
 
-    document.querySelectorAll(".lightbox-trigger").forEach(el => {
-      el.addEventListener("click", e => {
+    document.querySelectorAll('.lightbox-trigger').forEach(trigger => {
+      trigger.addEventListener('click', (e) => {
         e.preventDefault();
-        const src = el.getAttribute("data-src");
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const caption = document.getElementById('lightbox-caption');
+    
+        const src = trigger.getAttribute('data-src');
+        const alt = trigger.getAttribute('data-alt') || '';
+    
         lightboxImg.src = src;
-        lightbox.classList.remove("hidden");
+        lightboxImg.alt = alt;
+        caption.textContent = alt;
+    
+        lightbox.classList.remove('hidden');
       });
     });
 

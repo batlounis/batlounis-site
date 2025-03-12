@@ -2,19 +2,50 @@ const fs = require('fs');
 const path = require('path');
 const sharp = require('sharp');
 const csv = require('csvtojson');
+const { parse } = require('json2csv');
 
 const INPUT_DIR = path.join(__dirname, '..', 'assets', 'images');
 const OUTPUT_DIR = path.join(__dirname, '..', 'assets', 'images_cropped');
-const CSV_PATH = path.join(__dirname, '..', 'data', 'images.csv');
+const CSV_DIR = path.join(__dirname, '..', 'data');
+const IMAGES_CSV_PATH = path.join(CSV_DIR, 'images.csv');
+const GRID_CSV_PATH = path.join(CSV_DIR, 'grid.csv');
 const MAX_WIDTH = 1400;
 const QUALITY = 85;
 
 fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 
+const args = process.argv.slice(2);
+const SLUG_FILTER = args[0]; // undefined if no args
+
+async function mergeCsvsWithSlug(slug, type) {
+  const inputDir = path.join(CSV_DIR, slug, type); // e.g. data/my-slug/grid/
+  const outputFile = type === 'grid' ? GRID_CSV_PATH : IMAGES_CSV_PATH;
+
+  if (!fs.existsSync(inputDir)) {
+    console.warn(`⚠️ Folder not found: ${inputDir}`);
+    return;
+  }
+
+  const files = fs.readdirSync(inputDir).filter(f => f.endsWith('.csv'));
+
+  for (const file of files) {
+    const filePath = path.join(inputDir, file);
+    const json = await csv().fromFile(filePath);
+
+    const withSlug = json.map(row => ({ slug, ...row }));
+
+    const csvData = parse(withSlug, { header: false });
+    fs.appendFileSync(outputFile, '\n' + csvData);
+    console.log(`📎 Appended ${filePath} to ${outputFile}`);
+  }
+}
+
 async function cropAndResizeImages() {
-  const rows = await csv().fromFile(CSV_PATH);
+  const rows = await csv().fromFile(IMAGES_CSV_PATH);
 
   for (const row of rows) {
+    if (SLUG_FILTER && row.story_slug !== SLUG_FILTER) continue;
+
     const {
       story_slug,
       file_name,
@@ -33,7 +64,6 @@ async function cropAndResizeImages() {
       continue;
     }
 
-    // Ensure subdirectory exists
     fs.mkdirSync(outputPath, { recursive: true });
 
     try {
@@ -60,4 +90,12 @@ async function cropAndResizeImages() {
   }
 }
 
-cropAndResizeImages();
+(async () => {
+  if (SLUG_FILTER) {
+    console.log(`🔍 Processing slug: ${SLUG_FILTER}`);
+    await mergeCsvsWithSlug(SLUG_FILTER, 'grid');
+    await mergeCsvsWithSlug(SLUG_FILTER, 'images');
+  }
+
+  await cropAndResizeImages();
+})();
