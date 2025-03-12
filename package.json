@@ -6,7 +6,7 @@
   "scripts": {
     "crop": "node src/scripts/crop-images.js",
     "build": "npm run crop && eleventy",
-    "serve": "eleventy --serve",
+    "serve": "ELEVENTY_ENV=development eleventy --serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

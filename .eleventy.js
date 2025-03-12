@@ -3,6 +3,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({"src/assets":"assets"});
   eleventyConfig.addPassthroughCopy({ ".nojekyll": ".nojekyll" });
   eleventyConfig.addPassthroughCopy({ "CNAME": "CNAME" });
+  eleventyConfig.addGlobalData("env", process.env.ELEVENTY_ENV || "production");
 
   eleventyConfig.addFilter("filterBySlug", (array, slug) => {
     return array.filter(item => item.story_slug === slug);
