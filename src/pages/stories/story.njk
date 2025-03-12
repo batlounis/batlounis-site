@@ -20,17 +20,17 @@ permalink: "/stories/{{ story.slug }}/index.html"
   </p>
 </main>
 
-<section class="space-y-4 mt-16 px-4 max-w-6xl mx-auto">
+<section class="space-y-1 sm:space-y-2 md:space-y-4 mt-16 px-4 max-w-6xl mx-auto">
   {% set storyGrid = grid | filterBySlug(story.slug) %}
   
   {% for row in storyGrid %}
-    <div class="flex space-x-4">
+    <div class="flex space-x-1 sm:space-x-2 md:space-x-4">
       {% for img in row.images %}
         {% set photo = images | findPhotoByFile(story.slug, img.filename) %}
         <div class="w-[{{ img.widthPercent }}%]">
           <a href="#!" class="lightbox-trigger" data-src="/assets/images_cropped/{{ story.slug }}/{{ img.filename }}">
             <img 
-              class="w-full h-auto object-cover rounded-lg cursor-zoom-in"
+              class="w-full h-auto object-cover rounded-md cursor-zoom-in"
               src="/assets/images_cropped/{{ story.slug }}/{{ img.filename }}"
               alt="{{ photo.alt_text }}"
             >
