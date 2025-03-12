@@ -422,10 +422,19 @@
   
 </section>
 
-<div id="lightbox" class="fixed inset-0 bg-black/80 flex items-center justify-center hidden z-50">
+<div id="lightbox" class="fixed inset-0 bg-black/80 flex items-center justify-center hidden z-50 px-4">
   <div class="text-center">
-    <img id="lightbox-img" src="" alt="" class="max-h-[90vh] max-w-[90vw] rounded shadow-lg">
-    <p id="lightbox-caption" class="mt-2 text-white italic text-sm"></p>
+    <img id="lightbox-img" src="" alt="" class="max-h-[80vh] max-w-[90vw] rounded shadow-lg mx-auto">
+    <p id="lightbox-caption" class="mt-4 text-white italic text-sm"></p>
+
+    <a 
+      id="lightbox-buy"
+      href="https://form.typeform.com/to/AgIQdCQI"
+      class="inline-block mt-4 bg-yellow-400 hover:bg-yellow-300 text-black font-semibold py-2 px-4 rounded transition duration-150"
+      target="_blank"
+    >
+      Buy License
+    </a>
   </div>
   <button id="lightbox-close" class="absolute top-4 right-6 text-white text-3xl font-bold">&times;</button>
 </div>

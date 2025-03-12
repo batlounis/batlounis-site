@@ -16,14 +16,18 @@ document.addEventListener("DOMContentLoaded", () => {
         const urlParams = new URLSearchParams(window.location.search);
         const isDev = urlParams.get('dev') === 'true';
     
-        // Choose which image to show based on dev mode
         const imgToShow = isDev ? originalSrc : croppedSrc;
     
         document.getElementById('lightbox-img').src = imgToShow;
-    
-        // Caption includes filename in dev mode
         document.getElementById('lightbox-caption').textContent =
           isDev ? `${filename} — ${altText}` : altText;
+    
+        // 🔥 Set license button link dynamically
+        const buyButton = document.getElementById('lightbox-buy');
+        const baseHref = buyButton.href.split('?')[0];
+        const existingParams = new URLSearchParams(buyButton.href.split('?')[1]);
+        existingParams.set('image', filename);
+        buyButton.href = `${baseHref}?${existingParams.toString()}`;
     
         document.getElementById('lightbox').classList.remove('hidden');
       });
