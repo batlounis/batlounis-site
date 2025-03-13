@@ -38,6 +38,17 @@ document.addEventListener("DOMContentLoaded", () => {
         buyButton.href = `${baseHref}?${existingParams.toString()}`;
     
         document.getElementById('lightbox').classList.remove('hidden');
+
+        buyButton.addEventListener('click', () => {
+          if (typeof gtag === 'function') {
+            gtag('event', 'click_buy_license', {
+              event_category: 'Lead',
+              event_label: filename || 'unknown'
+            });
+          }
+        });
+
+
       });
     });
 
@@ -63,15 +74,3 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   });
-
-  const buyBtn = document.getElementById('lightbox-buy');
-  if (buyBtn) {
-    buyBtn.addEventListener('click', () => {
-      if (typeof gtag === 'function') {
-        gtag('event', 'click_buy_license', {
-          event_category: 'Lead',
-          event_label: currentFilename || 'unknown'
-        });
-      }
-    });
-  }
