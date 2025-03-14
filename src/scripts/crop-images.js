@@ -14,8 +14,24 @@ const QUALITY = 85;
 
 fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 
-const args = process.argv.slice(2);
-const SLUG_FILTER = args[0]; // undefined if no args
+const readline = require('readline');
+
+async function getSlugFilter() {
+  const args = process.argv.slice(2);
+  if (args[0]) return args[0];
+
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
+
+  return new Promise(resolve => {
+    rl.question('Enter slug to process (leave empty to process all): ', answer => {
+      rl.close();
+      resolve(answer.trim() || undefined);
+    });
+  });
+}
 
 async function mergeCsvsWithSlug(slug, type) {
   const inputDir = path.join(CSV_DIR, slug, type); // e.g. data/my-slug/grid/
@@ -40,7 +56,8 @@ async function mergeCsvsWithSlug(slug, type) {
   }
 }
 
-async function cropAndResizeImages() {
+
+async function cropAndResizeImages(SLUG_FILTER) {
   const rows = await csv().fromFile(IMAGES_CSV_PATH);
 
   for (const row of rows) {
@@ -91,11 +108,13 @@ async function cropAndResizeImages() {
 }
 
 (async () => {
+  const SLUG_FILTER = await getSlugFilter();
+
   if (SLUG_FILTER) {
     console.log(`🔍 Processing slug: ${SLUG_FILTER}`);
     await mergeCsvsWithSlug(SLUG_FILTER, 'grid');
     await mergeCsvsWithSlug(SLUG_FILTER, 'images');
   }
 
-  await cropAndResizeImages();
+  await cropAndResizeImages(SLUG_FILTER);
 })();

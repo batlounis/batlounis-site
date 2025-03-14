@@ -1,0 +1,9 @@
+Record Type,Campaign,Campaign Status,Campaign Type,Budget,Bidding Strategy Type,Ad Group,Keyword,Ad Group Status,Ad Type,Final URL,Headline 1,Headline 2,Headline 3,Description Line 1,Description Line 2,Ad Status
+Campaign,photos.batlounis.com,Enabled,Search,2,Manual CPC,,,,,,,,,,,
+Ad Group,photos.batlounis.com,,,,,vintage,,Enabled,,,,,,,,
+Ad,photos.batlounis.com,,,,,vintage,,,Responsive search ad,https://photos.batlounis.com/stories/vintage,Timeless Vintage Stock,Nostalgic Moments Captured,Authentic Black & White Images,"Browse curated vintage photos for editorial, creative, and commercial use.",From family life to ancient ruins — bring history into your next project.,Enabled
+Keyword,photos.batlounis.com,,,,,vintage,vintage stock photos,,,,,,,,,
+Keyword,photos.batlounis.com,,,,,vintage,nostalgic photography,,,,,,,,,
+Keyword,photos.batlounis.com,,,,,vintage,black and white stock,,,,,,,,,
+Keyword,photos.batlounis.com,,,,,vintage,retro lifestyle images,,,,,,,,,
+Keyword,photos.batlounis.com,,,,,vintage,old photo archive,,,,,,,,,
