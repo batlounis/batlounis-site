@@ -1,0 +1,12 @@
+Record Type,Campaign,Campaign Status,Campaign Type,Budget,Bidding Strategy Type,Ad Group,Keyword,Ad Group Status,Ad Type,Final URL,Headline 1,Headline 2,Headline 3,Headline 4,Headline 5,Headline 6,Headline 7,Description Line 1,Description Line 2,Description Line 3,Ad Status
+Campaign,photos.batlounis.com,Enabled,Search,2,Manual CPC,,,,,,,,,,,,,,,,
+Ad Group,photos.batlounis.com,,,,,birds,,Enabled,,,,,,,,,,,,,
+Ad,photos.batlounis.com,,,,,birds,,,Responsive search ad,https://photos.batlounis.com/stories/birds,Stunning Bird Stock Photos,Urban & Wild Birds Collection,Beautiful Bird Photography,Birds in Flight & Stillness,High-Quality Stock Images,Download Bird Photos Today,,"Explore striking bird images—urban, wild, and in flight. License royalty-free now.",Bring your designs to life with elegant bird stock photos.,From flocks to swans—get premium nature shots today.,Enabled
+Keyword,photos.batlounis.com,,,,,birds,seabird stock photos,,,,,,,,,,,,,,
+Keyword,photos.batlounis.com,,,,,birds,coastal bird photography,,,,,,,,,,,,,,
+Keyword,photos.batlounis.com,,,,,birds,puffin stock image,,,,,,,,,,,,,,
+Keyword,photos.batlounis.com,,,,,birds,ocean bird images,,,,,,,,,,,,,,
+Keyword,photos.batlounis.com,,,,,birds,wildlife photography,,,,,,,,,,,,,,
+Keyword,photos.batlounis.com,,,,,birds,stock photos birds,,,,,,,,,,,,,,
+Keyword,photos.batlounis.com,,,,,birds,bird wall art,,,,,,,,,,,,,,
+Keyword,photos.batlounis.com,,,,,birds,bird in flight photo,,,,,,,,,,,,,,
