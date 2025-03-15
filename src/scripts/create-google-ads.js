@@ -4,7 +4,11 @@ const csv = require('csvtojson');
 const { stringify } = require('csv-stringify/sync');
 const readline = require('readline');
 
-const INPUT_PATH = path.join(__dirname, '..', 'data', 'ads.csv');
+const SHEET_ID = '1Ybj9iRXasJKKhNH1H5-PKMZPVdtw6dKxxvulvQCFBEs';
+const GID = '366754899';
+const SHEET_CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=${GID}`;
+
+// const INPUT_PATH = path.join(__dirname, '..', 'data', 'ads.csv');
 const OUTPUT_PATH = path.join(__dirname, '..', 'assets', 'google_ads.csv');
 const CAMPAIGN_NAME = 'photos.batlounis.com';
 const FINAL_URL_BASE = 'https://photos.batlounis.com/stories/';
@@ -13,9 +17,22 @@ const FINAL_URL_BASE = 'https://photos.batlounis.com/stories/';
 const HEADERS = [
   'Record Type', 'Campaign', 'Campaign Status', 'Campaign Type', 'Budget', 'Bidding Strategy Type',
   'Ad Group', 'Keyword', 'Ad Group Status', 'Ad Type', 'Final URL',
-  'Headline 1', 'Headline 2', 'Headline 3',
-  'Description Line 1', 'Description Line 2', 'Ad Status'
+  'Headline 1', 'Headline 2', 'Headline 3', 'Headline 4', 'Headline 5', 'Headline 6', 'Headline 7',
+  'Description Line 1', 'Description Line 2', 'Description Line 3',
+  'Ad Status'
 ];
+
+async function fetchSheetAsJSON() {
+  const fetch = (await import('node-fetch')).default;
+  const response = await fetch(SHEET_CSV_URL);
+  if (!response.ok) {
+    throw new Error(`Failed to fetch sheet: ${response.statusText}`);
+  }
+  const csvText = await response.text();
+  const json = await csv({ trim: true }).fromString(csvText);
+  console.log('📄 Fetched Google Sheet data:', json);
+  return json;
+}
 
 function askForSlug() {
   const args = process.argv.slice(2);
@@ -35,7 +52,7 @@ function askForSlug() {
 }
 
 async function generateGoogleAds(slugFilter) {
-  const rawData = await csv({ trim: true }).fromFile(INPUT_PATH);
+  const rawData = await fetchSheetAsJSON();
   const data = rawData.map(row => {
     const normalized = {};
     for (const key in row) {
@@ -64,8 +81,13 @@ async function generateGoogleAds(slugFilter) {
       headline_1,
       headline_2,
       headline_3,
+      headline_4,
+      headline_5,
+      headline_6,
+      headline_7,
       description_line_1,
       description_line_2,
+      description_line_3,
       keywords
     } = row;
 
@@ -90,8 +112,13 @@ async function generateGoogleAds(slugFilter) {
       'Headline 1': headline_1,
       'Headline 2': headline_2,
       'Headline 3': headline_3,
+      'Headline 4': headline_4,
+      'Headline 5': headline_5,
+      'Headline 6': headline_6,
+      'Headline 7': headline_7,
       'Description Line 1': description_line_1,
       'Description Line 2': description_line_2,
+      'Description Line 3': description_line_3,
       'Ad Status': 'Enabled'
     });
 
