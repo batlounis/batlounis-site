@@ -121,25 +121,36 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    const getMostVisibleVideo = () => {
-      const candidates = Array.from(document.querySelectorAll("video"))
+    const getVisibleVideosByRow = () => {
+      const tolerance = 10; // px
+      const visibleVideos = Array.from(document.querySelectorAll("video"))
         .filter(v => !v.closest('#lightbox'))
         .map(video => {
-        const rect = video.getBoundingClientRect();
-        const visibleHeight = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
-        const ratio = Math.max(0, visibleHeight) / rect.height;
-        return { video, ratio };
+          const rect = video.getBoundingClientRect();
+          const visibleHeight = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
+          const ratio = Math.max(0, visibleHeight) / rect.height;
+          return { video, ratio, top: rect.top };
+        })
+        .filter(v => v.ratio > 0.5);
+
+      // Group videos by row (same top +/- tolerance)
+      const grouped = {};
+      visibleVideos.forEach(v => {
+        const rowKey = Object.keys(grouped).find(key => Math.abs(v.top - key) < tolerance);
+        const key = rowKey !== undefined ? rowKey : v.top;
+        if (!grouped[key]) grouped[key] = [];
+        grouped[key].push(v.video);
       });
-  
-      return candidates
-        .filter(v => v.ratio > 0.5)
-        .sort((a, b) => b.ratio - a.ratio)[0]?.video || null;
+
+      // Find the topmost visible row
+      const topRowKey = Math.min(...Object.keys(grouped));
+      return grouped[topRowKey] || [];
     };
-  
+
     const updateVideoPlayback = () => {
-      const topVisible = getMostVisibleVideo();
+      const visibleRowVideos = getVisibleVideosByRow();
       document.querySelectorAll("video").forEach(video => {
-        if (video === topVisible) {
+        if (visibleRowVideos.includes(video)) {
           video.play().catch(() => {});
         } else {
           video.pause();

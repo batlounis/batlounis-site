@@ -6,7 +6,9 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addGlobalData("env", process.env.ELEVENTY_ENV || "production");
 
   eleventyConfig.addFilter("filterBySlug", (array, slug) => {
-    return array.filter(item => item.story_slug === slug);
+    return array
+      .filter(item => item.story_slug === slug)
+      .sort((a, b) => a.row - b.row);
   });
 
   eleventyConfig.addFilter("findPhotoByFile", (photos, storySlug, fileName) => {

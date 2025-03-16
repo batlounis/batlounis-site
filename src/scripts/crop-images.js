@@ -45,6 +45,9 @@ async function mergeCsvsWithSlug(slug, type) {
   }
 
   const files = fs.readdirSync(inputDir).filter(f => f.endsWith('.csv'));
+  let allCsvData = '';
+  const headers = 'story_slug,file_name,aspect_ratio,x_start_pct,y_start_pct,width_pct,height_pct,alt_text,reason,score,similar_to';
+  allCsvData = headers + '\n';
 
   for (const file of files) {
     const filePath = path.join(inputDir, file);
@@ -52,23 +55,58 @@ async function mergeCsvsWithSlug(slug, type) {
 
     const withSlug = json.map(row => ({ slug, ...row }));
 
-    const csvData = parse(withSlug, { header: false });
+    const updatedRows = withSlug.map(row => {
+      if (row.file_name && typeof row.file_name === 'string' && row.file_name.match(/\.\w+$/)) {
+        const mimeType = mime.lookup(row.file_name);
+        if (typeof mimeType === 'string' && mimeType.startsWith('video/')) {
+          row.file_name = row.file_name.replace(/\.\w+$/, '.mp4');
+        }
+      }
+      if (type === 'grid' && row.images && typeof row.images === 'string') {
+        row.images = row.images
+          .split(',')
+          .map(name => {
+            const mimeType = mime.lookup(name.trim());
+            if (typeof mimeType === 'string' && mimeType.startsWith('video/')) {
+              return name.trim().replace(/\.\w+$/, '.mp4');
+            }
+            return name.trim();
+          })
+          .join(',');
+      }
+      return row;
+    });
+
+    const csvData = parse(updatedRows, { header: false });
     fs.appendFileSync(outputFile, '\n' + csvData);
-    const mergedCsvPath = path.join(CSV_DIR, slug, `${type}.csv`);
-    fs.appendFileSync(mergedCsvPath, '\n' + csvData);
-    console.log(`📎 Also saved merged data to ${mergedCsvPath}`);
+    allCsvData += '\n' + csvData;
     console.log(`📎 Appended ${filePath} to ${outputFile}`);
   }
+
+  const mergedCsvPath = path.join(CSV_DIR, slug, `${type}.csv`);
+  fs.writeFileSync(mergedCsvPath, allCsvData.trimStart());
+  console.log(`📎 Also saved merged data to ${mergedCsvPath}`);
 }
 
 async function cropAndResizeMedia(SLUG_FILTER) {
-  const rows = await csv().fromFile(IMAGES_CSV_PATH);
+  const inputCsvPath = IMAGES_CSV_PATH;
+  const rows = await csv().fromFile(inputCsvPath);
+  console.log(`📄 Total rows in CSV: ${rows.length}`);
 
   for (const row of rows) {
-    if (SLUG_FILTER && row.story_slug !== SLUG_FILTER) continue;
+    if (!row.file_name) {
+      console.warn(`⚠️ Skipping row due to missing file_name:`, row);
+      continue;
+    }
+    
+    const story_slug = row.story_slug || SLUG_FILTER;
+    if (!story_slug || (SLUG_FILTER && story_slug !== SLUG_FILTER)) {
+      console.log(`🚫 Skipping due to slug mismatch: ${row.file_name}`);
+      continue;
+    }
+    console.log(`➡️ Processing file: ${row.file_name}`);
 
     const {
-      story_slug,
       file_name,
       x_start_pct,
       y_start_pct,
@@ -77,13 +115,30 @@ async function cropAndResizeMedia(SLUG_FILTER) {
     } = row;
 
     const inputPath = path.join(INPUT_DIR, story_slug, file_name);
-    const mimeType = mime.lookup(inputPath);
-    const isVideo = mimeType && mimeType.startsWith('video/');
+    let realInputPath = inputPath;
+    let mimeType = mime.lookup(inputPath);
+    let isVideo = mimeType && mimeType.startsWith('video/');
+
+    if (isVideo && path.extname(file_name).toLowerCase() === '.mp4') {
+      // Try to find the real original file with a different extension
+      const baseName = path.basename(file_name, path.extname(file_name));
+      const possibleExtensions = ['.mov', '.mkv', '.webm', '.avi', '.mp4'];
+      for (const ext of possibleExtensions) {
+        const candidate = path.join(INPUT_DIR, story_slug, baseName + ext);
+        if (fs.existsSync(candidate)) {
+          realInputPath = candidate;
+          mimeType = mime.lookup(candidate);
+          isVideo = mimeType && mimeType.startsWith('video/');
+          break;
+        }
+      }
+    }
     const outputPath = path.join(OUTPUT_DIR, story_slug);
     const outputFile = path.join(outputPath, file_name);
 
-    if (!fs.existsSync(inputPath)) {
-      console.warn(`⚠️ File not found: ${inputPath}`);
+    if (!fs.existsSync(realInputPath)) {
+      console.warn(`⚠️ Skipping: file not found for slug "${story_slug}", file "${file_name}"`);
+      console.warn(`   ➤ Expected path: ${realInputPath}`);
       continue;
     }
 
@@ -91,7 +146,7 @@ async function cropAndResizeMedia(SLUG_FILTER) {
 
     try {
       if (isVideo) {
-        const probeCmd = `ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=p=0:s=x "${inputPath}"`;
+        const probeCmd = `ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=p=0:s=x "${realInputPath}"`;
         const dimensions = execSync(probeCmd).toString().trim().split('x');
         const width = parseInt(dimensions[0], 10);
         const height = parseInt(dimensions[1], 10);
@@ -112,10 +167,11 @@ async function cropAndResizeMedia(SLUG_FILTER) {
         const outputFileExt = path.extname(file_name).toLowerCase();
         const newFileName = file_name.replace(/\.\w+$/, '.mp4');
         const updatedOutputFile = path.join(outputPath, newFileName);
-        const ffmpegCmd = `ffmpeg -y -v warning -i "${inputPath}" -filter:v "${filter},format=yuv420p,fps=30" -c:v libx264 -preset fast -crf 23 -pix_fmt yuv420p -c:a aac -b:a 128k "${updatedOutputFile}"`;        execSync(ffmpegCmd);
+        const ffmpegCmd = `ffmpeg -y -v warning -i "${realInputPath}" -filter:v "${filter},format=yuv420p,fps=30" -c:v libx264 -preset fast -crf 23 -pix_fmt yuv420p -c:a aac -b:a 128k "${updatedOutputFile}"`;
+        execSync(ffmpegCmd);
         console.log(`🎞️ Cropped and saved video: ${updatedOutputFile}`);
       } else {
-        const image = sharp(inputPath);
+        const image = sharp(realInputPath);
         const metadata = await image.metadata();
 
         const x = Math.round((x_start_pct / 100) * metadata.width);
@@ -134,9 +190,10 @@ async function cropAndResizeMedia(SLUG_FILTER) {
         console.log(`🖼️ Cropped and saved image: ${outputFile}`);
       }
     } catch (err) {
-      console.error(`❌ Error processing ${inputPath}: ${err.message}`);
+      console.error(`❌ Error processing ${realInputPath}: ${err.message}`);
     }
   }
+  console.log('✅ Finished processing all rows.');
 }
 
 (async () => {
