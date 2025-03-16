@@ -28,19 +28,36 @@ permalink: "/stories/{{ story.slug }}/index.html"
       {% for img in row.images %}
         {% set photo = images | findPhotoByFile(story.slug, img.filename) %}
         <div class="w-[{{ img.widthPercent }}%]">
-          <a 
-            href="#!" 
-            class="lightbox-trigger" 
-            data-cropped-src="/assets/images_cropped/{{ story.slug }}/{{ img.filename }}"
-            data-original-src="/assets/images/{{ story.slug }}/{{ img.filename }}"
-            data-filename="{{ img.filename }}"
-            data-alt="{{ photo.alt_text | escape }}">
-            <img 
-              class="w-full h-auto object-cover rounded-md cursor-zoom-in shadow-md"
-              src="/assets/images_cropped/{{ story.slug }}/{{ img.filename }}"
-              alt="{{ photo.alt_text }}"
-            >
-          </a>
+          {% set ext = img.filename.slice(-3) | lower %}
+          {% if ext in ['mp4', 'mov', 'webm'] %}
+            <a 
+              href="#!" 
+              class="lightbox-trigger" 
+              data-cropped-src="/assets/images_cropped/{{ story.slug }}/{{ img.filename }}"
+              data-original-src="/assets/images/{{ story.slug }}/{{ img.filename }}"
+              data-filename="{{ img.filename }}"
+              data-alt="{{ photo.alt_text | escape }}">
+              <video 
+                class="w-full h-auto object-cover rounded-md cursor-zoom-in shadow-md"
+                src="/assets/images_cropped/{{ story.slug }}/{{ img.filename }}"
+                autoplay muted loop playsinline
+              ></video>
+            </a>
+          {% else %}
+            <a 
+              href="#!" 
+              class="lightbox-trigger" 
+              data-cropped-src="/assets/images_cropped/{{ story.slug }}/{{ img.filename }}"
+              data-original-src="/assets/images/{{ story.slug }}/{{ img.filename }}"
+              data-filename="{{ img.filename }}"
+              data-alt="{{ photo.alt_text | escape }}">
+              <img 
+                class="w-full h-auto object-cover rounded-md cursor-zoom-in shadow-md"
+                src="/assets/images_cropped/{{ story.slug }}/{{ img.filename }}"
+                alt="{{ photo.alt_text }}"
+              >
+            </a>
+          {% endif %}
           {% if photo.alt_text %}
             <p class="grid-caption text-sm text-gray-600 italic mt-2 hidden">{{ img.filename }} - {{ photo.alt_text }}</p>
           {% endif %}
@@ -53,6 +70,7 @@ permalink: "/stories/{{ story.slug }}/index.html"
 <div id="lightbox" class="fixed inset-0 bg-black/80 flex items-center justify-center hidden z-50 px-4">
   <div class="text-center">
     <img id="lightbox-img" src="" alt="" class="max-h-[80vh] max-w-[90vw] rounded shadow-lg mx-auto">
+    <video id="lightbox-video" class="hidden max-w-full max-h-[90vh]" autoplay muted loop playsinline></video>
     <p id="lightbox-caption" class="mt-4 text-white italic text-sm"></p>
 
     <a 
@@ -68,3 +86,4 @@ permalink: "/stories/{{ story.slug }}/index.html"
 </div>
 
 <script src="/assets/js/lightbox.js" defer></script>
+</file>
