@@ -4,11 +4,7 @@ const csv = require('csvtojson');
 const { stringify } = require('csv-stringify/sync');
 const readline = require('readline');
 
-const SHEET_ID = '1Ybj9iRXasJKKhNH1H5-PKMZPVdtw6dKxxvulvQCFBEs';
-const GID = '366754899';
-const SHEET_CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=${GID}`;
-
-// const INPUT_PATH = path.join(__dirname, '..', 'data', 'ads.csv');
+const INPUT_PATH = path.join(__dirname, '..', 'data', 'ads.csv');
 const OUTPUT_PATH = path.join(__dirname, '..', 'assets', 'google_ads.csv');
 const CAMPAIGN_NAME = 'photos.batlounis.com';
 const FINAL_URL_BASE = 'https://photos.batlounis.com/stories/';
@@ -22,17 +18,7 @@ const HEADERS = [
   'Ad Status'
 ];
 
-async function fetchSheetAsJSON() {
-  const fetch = (await import('node-fetch')).default;
-  const response = await fetch(SHEET_CSV_URL);
-  if (!response.ok) {
-    throw new Error(`Failed to fetch sheet: ${response.statusText}`);
-  }
-  const csvText = await response.text();
-  const json = await csv({ trim: true }).fromString(csvText);
-  console.log('📄 Fetched Google Sheet data:', json);
-  return json;
-}
+// Removed fetchSheetAsJSON function as CSV is now read from local file
 
 function askForSlug() {
   const args = process.argv.slice(2);
@@ -52,7 +38,7 @@ function askForSlug() {
 }
 
 async function generateGoogleAds(slugFilter) {
-  const rawData = await fetchSheetAsJSON();
+  const rawData = await csv({ trim: true }).fromFile(INPUT_PATH);
   const data = rawData.map(row => {
     const normalized = {};
     for (const key in row) {
