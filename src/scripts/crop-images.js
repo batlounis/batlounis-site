@@ -52,6 +52,9 @@ async function mergeCsvsWithSlug(slug, type) {
 
     const csvData = parse(withSlug, { header: false });
     fs.appendFileSync(outputFile, '\n' + csvData);
+    const mergedCsvPath = path.join(CSV_DIR, slug, `${type}.csv`);
+    fs.appendFileSync(mergedCsvPath, '\n' + csvData);
+    console.log(`📎 Also saved merged data to ${mergedCsvPath}`);
     console.log(`📎 Appended ${filePath} to ${outputFile}`);
   }
 }
