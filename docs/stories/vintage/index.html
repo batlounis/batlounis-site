@@ -20,7 +20,19 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
 
-    
+    <script>
+      if (location.hostname !== 'localhost') {
+        var gtagScript = document.createElement('script');
+        gtagScript.async = true;
+        gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-40TNB9Y484';
+        document.head.appendChild(gtagScript);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-40TNB9Y484');
+      }
+    </script>
 </head>
 <body class="bg-gradient-to-b from-gray-100 to-white text-gray-900">
 
@@ -69,56 +81,6 @@
 <section class="space-y-1 sm:space-y-2 md:space-y-4 mt-16 px-4 max-w-6xl mx-auto">
   
   
-  
-    <div class="flex space-x-1 sm:space-x-2 md:space-x-4">
-      
-        
-        <div class="w-[33.63%]">
-          
-          
-            <a 
-              href="#!" 
-              class="lightbox-trigger" 
-              data-cropped-src="/assets/images_cropped/vintage/IMG_20190122_0009 (36)_Original (1).jpeg"
-              data-original-src="/assets/images/vintage/IMG_20190122_0009 (36)_Original (1).jpeg"
-              data-filename="IMG_20190122_0009 (36)_Original (1).jpeg"
-              data-alt="Two women gardening next to a stone wall in a village">
-              <img 
-                class="w-full h-auto object-cover rounded-md cursor-zoom-in shadow-md"
-                src="/assets/images_cropped/vintage/IMG_20190122_0009 (36)_Original (1).jpeg"
-                alt="Two women gardening next to a stone wall in a village"
-              >
-            </a>
-          
-          
-            <p class="grid-caption text-sm text-gray-600 italic mt-2 hidden">IMG_20190122_0009 (36)_Original (1).jpeg - Two women gardening next to a stone wall in a village</p>
-          
-        </div>
-      
-        
-        <div class="w-[66.37%]">
-          
-          
-            <a 
-              href="#!" 
-              class="lightbox-trigger" 
-              data-cropped-src="/assets/images_cropped/vintage/IMG_20190122_0009 (27)_Original.jpeg"
-              data-original-src="/assets/images/vintage/IMG_20190122_0009 (27)_Original.jpeg"
-              data-filename="IMG_20190122_0009 (27)_Original.jpeg"
-              data-alt="Vintage train approaching in the distance with child watching from tracks">
-              <img 
-                class="w-full h-auto object-cover rounded-md cursor-zoom-in shadow-md"
-                src="/assets/images_cropped/vintage/IMG_20190122_0009 (27)_Original.jpeg"
-                alt="Vintage train approaching in the distance with child watching from tracks"
-              >
-            </a>
-          
-          
-            <p class="grid-caption text-sm text-gray-600 italic mt-2 hidden">IMG_20190122_0009 (27)_Original.jpeg - Vintage train approaching in the distance with child watching from tracks</p>
-          
-        </div>
-      
-    </div>
   
     <div class="flex space-x-1 sm:space-x-2 md:space-x-4">
       
@@ -192,56 +154,6 @@
           
           
             <p class="grid-caption text-sm text-gray-600 italic mt-2 hidden">IMG_20190122_0009 (25)_Original.jpeg - Young woman sitting among pine trees in a vintage striped dress</p>
-          
-        </div>
-      
-    </div>
-  
-    <div class="flex space-x-1 sm:space-x-2 md:space-x-4">
-      
-        
-        <div class="w-[46.59%]">
-          
-          
-            <a 
-              href="#!" 
-              class="lightbox-trigger" 
-              data-cropped-src="/assets/images_cropped/vintage/IMG_20190122_0009 (40)_Original.jpeg"
-              data-original-src="/assets/images/vintage/IMG_20190122_0009 (40)_Original.jpeg"
-              data-filename="IMG_20190122_0009 (40)_Original.jpeg"
-              data-alt="Flamenco dancer performing on a boat surrounded by women and sailors">
-              <img 
-                class="w-full h-auto object-cover rounded-md cursor-zoom-in shadow-md"
-                src="/assets/images_cropped/vintage/IMG_20190122_0009 (40)_Original.jpeg"
-                alt="Flamenco dancer performing on a boat surrounded by women and sailors"
-              >
-            </a>
-          
-          
-            <p class="grid-caption text-sm text-gray-600 italic mt-2 hidden">IMG_20190122_0009 (40)_Original.jpeg - Flamenco dancer performing on a boat surrounded by women and sailors</p>
-          
-        </div>
-      
-        
-        <div class="w-[53.41%]">
-          
-          
-            <a 
-              href="#!" 
-              class="lightbox-trigger" 
-              data-cropped-src="/assets/images_cropped/vintage/IMG_20190122_0009 (32)_Original (1).jpeg"
-              data-original-src="/assets/images/vintage/IMG_20190122_0009 (32)_Original (1).jpeg"
-              data-filename="IMG_20190122_0009 (32)_Original (1).jpeg"
-              data-alt="Vintage woman leaning out of a window in an old apartment building">
-              <img 
-                class="w-full h-auto object-cover rounded-md cursor-zoom-in shadow-md"
-                src="/assets/images_cropped/vintage/IMG_20190122_0009 (32)_Original (1).jpeg"
-                alt="Vintage woman leaning out of a window in an old apartment building"
-              >
-            </a>
-          
-          
-            <p class="grid-caption text-sm text-gray-600 italic mt-2 hidden">IMG_20190122_0009 (32)_Original (1).jpeg - Vintage woman leaning out of a window in an old apartment building</p>
           
         </div>
       
@@ -442,6 +354,106 @@
           
           
             <p class="grid-caption text-sm text-gray-600 italic mt-2 hidden">IMG_20190122_0009 (76)_Original.jpeg - Intense chess match between grandmasters Tal and Gligoric</p>
+          
+        </div>
+      
+    </div>
+  
+    <div class="flex space-x-1 sm:space-x-2 md:space-x-4">
+      
+        
+        <div class="w-[33.63%]">
+          
+          
+            <a 
+              href="#!" 
+              class="lightbox-trigger" 
+              data-cropped-src="/assets/images_cropped/vintage/IMG_20190122_0009 (36)_Original (1).jpeg"
+              data-original-src="/assets/images/vintage/IMG_20190122_0009 (36)_Original (1).jpeg"
+              data-filename="IMG_20190122_0009 (36)_Original (1).jpeg"
+              data-alt="Two women gardening next to a stone wall in a village">
+              <img 
+                class="w-full h-auto object-cover rounded-md cursor-zoom-in shadow-md"
+                src="/assets/images_cropped/vintage/IMG_20190122_0009 (36)_Original (1).jpeg"
+                alt="Two women gardening next to a stone wall in a village"
+              >
+            </a>
+          
+          
+            <p class="grid-caption text-sm text-gray-600 italic mt-2 hidden">IMG_20190122_0009 (36)_Original (1).jpeg - Two women gardening next to a stone wall in a village</p>
+          
+        </div>
+      
+        
+        <div class="w-[66.37%]">
+          
+          
+            <a 
+              href="#!" 
+              class="lightbox-trigger" 
+              data-cropped-src="/assets/images_cropped/vintage/IMG_20190122_0009 (27)_Original.jpeg"
+              data-original-src="/assets/images/vintage/IMG_20190122_0009 (27)_Original.jpeg"
+              data-filename="IMG_20190122_0009 (27)_Original.jpeg"
+              data-alt="Vintage train approaching in the distance with child watching from tracks">
+              <img 
+                class="w-full h-auto object-cover rounded-md cursor-zoom-in shadow-md"
+                src="/assets/images_cropped/vintage/IMG_20190122_0009 (27)_Original.jpeg"
+                alt="Vintage train approaching in the distance with child watching from tracks"
+              >
+            </a>
+          
+          
+            <p class="grid-caption text-sm text-gray-600 italic mt-2 hidden">IMG_20190122_0009 (27)_Original.jpeg - Vintage train approaching in the distance with child watching from tracks</p>
+          
+        </div>
+      
+    </div>
+  
+    <div class="flex space-x-1 sm:space-x-2 md:space-x-4">
+      
+        
+        <div class="w-[46.59%]">
+          
+          
+            <a 
+              href="#!" 
+              class="lightbox-trigger" 
+              data-cropped-src="/assets/images_cropped/vintage/IMG_20190122_0009 (40)_Original.jpeg"
+              data-original-src="/assets/images/vintage/IMG_20190122_0009 (40)_Original.jpeg"
+              data-filename="IMG_20190122_0009 (40)_Original.jpeg"
+              data-alt="Flamenco dancer performing on a boat surrounded by women and sailors">
+              <img 
+                class="w-full h-auto object-cover rounded-md cursor-zoom-in shadow-md"
+                src="/assets/images_cropped/vintage/IMG_20190122_0009 (40)_Original.jpeg"
+                alt="Flamenco dancer performing on a boat surrounded by women and sailors"
+              >
+            </a>
+          
+          
+            <p class="grid-caption text-sm text-gray-600 italic mt-2 hidden">IMG_20190122_0009 (40)_Original.jpeg - Flamenco dancer performing on a boat surrounded by women and sailors</p>
+          
+        </div>
+      
+        
+        <div class="w-[53.41%]">
+          
+          
+            <a 
+              href="#!" 
+              class="lightbox-trigger" 
+              data-cropped-src="/assets/images_cropped/vintage/IMG_20190122_0009 (32)_Original (1).jpeg"
+              data-original-src="/assets/images/vintage/IMG_20190122_0009 (32)_Original (1).jpeg"
+              data-filename="IMG_20190122_0009 (32)_Original (1).jpeg"
+              data-alt="Vintage woman leaning out of a window in an old apartment building">
+              <img 
+                class="w-full h-auto object-cover rounded-md cursor-zoom-in shadow-md"
+                src="/assets/images_cropped/vintage/IMG_20190122_0009 (32)_Original (1).jpeg"
+                alt="Vintage woman leaning out of a window in an old apartment building"
+              >
+            </a>
+          
+          
+            <p class="grid-caption text-sm text-gray-600 italic mt-2 hidden">IMG_20190122_0009 (32)_Original (1).jpeg - Vintage woman leaning out of a window in an old apartment building</p>
           
         </div>
       

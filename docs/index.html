@@ -20,7 +20,19 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
 
-    
+    <script>
+      if (location.hostname !== 'localhost') {
+        var gtagScript = document.createElement('script');
+        gtagScript.async = true;
+        gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-40TNB9Y484';
+        document.head.appendChild(gtagScript);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-40TNB9Y484');
+      }
+    </script>
 </head>
 <body class="bg-gradient-to-b from-gray-100 to-white text-gray-900">
 
@@ -76,11 +88,13 @@
       
       <a href="/stories/clouds/" class="block group">
         <div class="aspect-[1/1] overflow-hidden rounded-lg shadow-md">
+        
           <img
             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
             src="/assets/images_cropped/clouds/IMG_9707.jpeg"
             alt="A stunning autumn lake reflection with colorful foliage and a tranquil water surface."
           >
+        
         </div>
         <p class="mt-3 text-base text-gray-800 text-center leading-snug">
           Dramatic Clouds <br>and Landscapes
@@ -94,11 +108,13 @@
       
       <a href="/stories/winter/" class="block group">
         <div class="aspect-[1/1] overflow-hidden rounded-lg shadow-md">
+        
           <img
             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
             src="/assets/images_cropped/winter/IMG_1724.jpeg"
             alt="People ice skating under a bridge on a snowy canal in winter"
           >
+        
         </div>
         <p class="mt-3 text-base text-gray-800 text-center leading-snug">
           Winter in Motion: <br>Urban and Natural Snow Scenes
@@ -112,11 +128,13 @@
       
       <a href="/stories/food/" class="block group">
         <div class="aspect-[1/1] overflow-hidden rounded-lg shadow-md">
+        
           <img
             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
             src="/assets/images_cropped/food/IMG_1428.jpeg"
             alt="Steamed dumplings with greens on white plate"
           >
+        
         </div>
         <p class="mt-3 text-base text-gray-800 text-center leading-snug">
           Fresh, Cozy, and Colorful <br>Food Moments
@@ -130,11 +148,13 @@
       
       <a href="/stories/vintage/" class="block group">
         <div class="aspect-[1/1] overflow-hidden rounded-lg shadow-md">
+        
           <img
             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-            src="/assets/images_cropped/vintage/IMG_20190122_0009 (36)_Original (1).jpeg"
-            alt="Two women gardening next to a stone wall in a village"
+            src="/assets/images_cropped/vintage/IMG_20190122_0009 (36)_Original.jpeg"
+            alt="People harvesting wildflowers on a hill under a cloudy sky"
           >
+        
         </div>
         <p class="mt-3 text-base text-gray-800 text-center leading-snug">
           A Vintage Life in Moments
@@ -148,14 +168,34 @@
       
       <a href="/stories/birds/" class="block group">
         <div class="aspect-[1/1] overflow-hidden rounded-lg shadow-md">
-          <img
+                  <video
             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
             src="/assets/images_cropped/birds/IMG_0185.mp4"
-            alt="Flying birds in a park"
-          >
+            autoplay muted loop playsinline
+          ></video>
+        
         </div>
         <p class="mt-3 text-base text-gray-800 text-center leading-snug">
           Birds <br>Coastal & Cliffside Charm
+        </p>
+      </a>
+    
+      
+      
+      
+      
+      
+      <a href="/stories/timelapse/" class="block group">
+        <div class="aspect-[1/1] overflow-hidden rounded-lg shadow-md">
+                  <video
+            class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+            src="/assets/images_cropped/timelapse/Aerial view of city lights at night clouds passing.mp4"
+            autoplay muted loop playsinline
+          ></video>
+        
+        </div>
+        <p class="mt-3 text-base text-gray-800 text-center leading-snug">
+          Ethereal Horizons: Nature, Cities & Vertical Stories
         </p>
       </a>
     

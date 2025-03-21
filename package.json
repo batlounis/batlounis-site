@@ -8,7 +8,7 @@
     "ads": "node src/scripts/create-google-ads.js",
     "download-sheets": "node src/scripts/download-sheets.js",
     "build": "npm run crop && eleventy",
-    "serve": "ELEVENTY_ENV=development eleventy --serve",
+    "serve": "eleventy --serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
