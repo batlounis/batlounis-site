@@ -1102,6 +1102,7 @@
       <label class="block hidden" id="usageLocationLabel">
         <span class="text-gray-700">Where will the image be used?</span>
         <select name="usageLocation" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+          <option value="" selected>Select an option</option>
           <option value="Website">Website</option>
           <option value="Social Media">Social Media</option>
           <option value="Print Materials (brochures, flyers, etc.)">Print Materials (brochures, flyers, etc.)</option>
@@ -1249,7 +1250,7 @@
       const submitButton = licenseForm.querySelector('button[type="submit"]');
       submitButton.textContent = "Submit";
       licenseForm.reset();
-      const inputs = licenseForm.querySelectorAll("input, select");
+      const inputs = licenseForm.querySelectorAll("input, select, button[type='submit']");
       inputs.forEach(input => {
         input.style.display = '';
       });
