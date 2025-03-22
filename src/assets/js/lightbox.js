@@ -74,10 +74,8 @@ document.addEventListener("DOMContentLoaded", () => {
     
         // 🔥 Set license button link dynamically
         const buyButton = document.getElementById('lightbox-buy');
-        const baseHref = buyButton.href.split('?')[0];
-        const existingParams = new URLSearchParams(buyButton.href.split('?')[1]);
-        existingParams.set('image', filename);
-        buyButton.href = `${baseHref}?${existingParams.toString()}`;
+        buyButton.setAttribute('data-photo-filename', filename);
+        buyButton.setAttribute('data-photo-url', imgToShow);
     
         buyButton.addEventListener('click', () => {
           if (typeof gtag === 'function') {

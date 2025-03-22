@@ -73,17 +73,16 @@ permalink: "/stories/{{ story.slug }}/index.html"
     <video id="lightbox-video" class="hidden max-w-full max-h-[90vh]" autoplay muted loop playsinline></video>
     <p id="lightbox-caption" class="mt-4 text-white italic text-sm"></p>
 
-    <a 
+    <button 
       id="lightbox-buy"
-      href="https://form.typeform.com/to/AgIQdCQI"
+      data-open-license-form
       class="inline-block mt-4 bg-yellow-400 hover:bg-yellow-300 text-black font-semibold py-2 px-4 rounded transition duration-150"
-      target="_blank"
+      data-photo-filename=""
     >
       Buy License
-    </a>
+    </button>
   </div>
   <button id="lightbox-close" class="absolute top-4 right-6 text-white text-3xl font-bold">&times;</button>
 </div>
 
 <script src="/assets/js/lightbox.js" defer></script>
-</file>
