@@ -1,0 +1,11 @@
+file_name,aspect_ratio,x_start_pct,y_start_pct,width_pct,height_pct,alt text,reason,score,similar_to
+_DSC8423_Original.jpeg,2:1,0,30,100,50,Twisted trees on rocky mountain slope in dense blue fog,Wide crop emphasizes the minimalist and atmospheric mood with strong leading slope line.,9,"_DSC9917_Original.jpeg,IMG_4055.jpeg"
+_DSC9631_Original.jpeg,3:2,0,0,100,100,Snow-covered cedar tree branches in dramatic winter night lighting,Full-frame crop captures texture and abstract geometry of snow-covered limbs.,8,"_DSC9917_Original.jpeg,IMG_4057.jpeg"
+_DSC9917_Original.jpeg,16:9,0,10,100,80,Foggy cedar forest with soft gradients of blue and green,Wide cinematic crop enhances the dreamy layering of forest shapes in fog.,9,"_DSC8423_Original.jpeg,IMG_4055.jpeg"
+DSC_0201.jpeg,3:2,0,20,100,80,Sunset glow through tall pine forest with mountain silhouette,Balanced crop gives breathing room to foreground silhouettes and glowing sky.,8,IMG_20191013_113229.jpeg
+DSC09599_Original.jpeg,16:9,0,15,100,70,Clouds rolling over lush green forested mountainside,Cinematic feel fits the drifting cloud motion and dense green contrast.,9,"_DSC9917_Original.jpeg,IMG_4055.jpeg"
+IMG_0736.jpeg,4:3,0,10,100,90,River bend framed by autumn reeds and bare trees reflecting in water,Classic crop to preserve horizontal reflections and seasonal layering.,8,IMG_20190504_120815.jpeg
+IMG_4055.jpeg,3:2,0,5,100,90,Moody fog forest with dense trunks and glowing mist,Crop balances depth with strong verticality and atmospheric mystery.,9,"_DSC8423_Original.jpeg,_DSC9917_Original.jpeg"
+IMG_4057.jpeg,2:3,0,0,100,100,Foggy forest clearing with tree silhouettes in soft winter light,Tall framing adds visual height and emphasizes vertical tree lines.,7,"IMG_4055.jpeg,_DSC9631_Original.jpeg"
+IMG_20190504_120815.jpeg,3:4,0,0,100,100,Early spring trail with hikers walking under leafless tree canopy,Vertical crop emphasizes the human journey and long canopy view.,8,IMG_0736.jpeg
+IMG_20191013_113229.jpeg,4:3,0,0,100,100,Colorful fall canopy with sunlight filtering through golden and orange leaves,Perfect composition preserved with warm seasonal tones filling the frame.,9,DSC_0201.jpeg
