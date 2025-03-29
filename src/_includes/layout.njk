@@ -10,12 +10,6 @@
     <meta property="og:url" content="https://batlounis.com{{ page.url }}" />
     <meta property="og:type" content="article" />
     <link rel="icon" href="/assets/public/favicon.png" type="image/png">
-    
-    <style>
-      .grecaptcha-badge {
-        visibility: hidden;
-      }
-    </style>
 
     {# <meta property="og:image" content="https://batlounis.com/assets/images_cropped/{{ story.slug }}/{{ image }}" /> #}
 
@@ -25,6 +19,12 @@
     {# <meta name="twitter:image" content="https://batlounis.com/assets/images_cropped/{{ story.slug }}/{{ firstImage.filename }}" /> #}
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <style>
+      .grecaptcha-badge {
+        visibility: hidden;
+      }
+    </style>
+    
     <script>
       if (location.hostname !== 'localhost') {
         var gtagScript = document.createElement('script');

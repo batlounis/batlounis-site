@@ -1,19 +1,10 @@
 Record Type,Campaign,Campaign Status,Campaign Type,Budget,Bidding Strategy Type,Ad Group,Keyword,Ad Group Status,Ad Type,Final URL,Headline 1,Headline 2,Headline 3,Headline 4,Headline 5,Headline 6,Headline 7,Description Line 1,Description Line 2,Description Line 3,Ad Status
 Campaign,photos.batlounis.com,Enabled,Search,2,Manual CPC,,,,,,,,,,,,,,,,
-Ad Group,photos.batlounis.com,,,,,vintage,,Enabled,,,,,,,,,,,,,
-Ad,photos.batlounis.com,,,,,vintage,,,Responsive search ad,https://photos.batlounis.com/stories/vintage,Timeless Vintage Stock,Nostalgic Moments Captured,Authentic Black & White Images,,,,,"Browse curated vintage photos for editorial, creative, and commercial use.",From family life to ancient ruins — bring history into your next project.,,Enabled
-Keyword,photos.batlounis.com,,,,,vintage,vintage stock photos,,,,,,,,,,,,,,
-Keyword,photos.batlounis.com,,,,,vintage,nostalgic photography,,,,,,,,,,,,,,
-Keyword,photos.batlounis.com,,,,,vintage,black and white stock,,,,,,,,,,,,,,
-Keyword,photos.batlounis.com,,,,,vintage,retro lifestyle images,,,,,,,,,,,,,,
-Keyword,photos.batlounis.com,,,,,vintage,old photo archive,,,,,,,,,,,,,,
-Ad Group,photos.batlounis.com,,,,,birds,,Enabled,,,,,,,,,,,,,
-Ad,photos.batlounis.com,,,,,birds,,,Responsive search ad,https://photos.batlounis.com/stories/birds,Stunning Bird Stock Photos,Urban & Wild Birds Collection,Beautiful Bird Photography,Birds in Flight & Stillness,High-Quality Stock Images,Download Bird Photos Today,,"Explore striking bird images—urban, wild, and in flight. License royalty-free now.",Bring your designs to life with elegant bird stock photos.,From flocks to swans—get premium nature shots today.,Enabled
-Keyword,photos.batlounis.com,,,,,birds,seabird stock photos,,,,,,,,,,,,,,
-Keyword,photos.batlounis.com,,,,,birds,coastal bird photography,,,,,,,,,,,,,,
-Keyword,photos.batlounis.com,,,,,birds,puffin stock image,,,,,,,,,,,,,,
-Keyword,photos.batlounis.com,,,,,birds,ocean bird images,,,,,,,,,,,,,,
-Keyword,photos.batlounis.com,,,,,birds,wildlife photography,,,,,,,,,,,,,,
-Keyword,photos.batlounis.com,,,,,birds,stock photos birds,,,,,,,,,,,,,,
-Keyword,photos.batlounis.com,,,,,birds,bird wall art,,,,,,,,,,,,,,
-Keyword,photos.batlounis.com,,,,,birds,bird in flight photo,,,,,,,,,,,,,,
+Ad Group,photos.batlounis.com,,,,,food,,Enabled,,,,,,,,,,,,,
+Ad,photos.batlounis.com,,,,,food,,,Responsive search ad,https://photos.batlounis.com/stories/food,Curated Food Stock Media,Fresh Food Photos,Aesthetic Food Visuals,"Real Food, Natural Light",Stock That Feels Delicious,,,Discover food visuals that feel real—crafted for modern storytelling.,"Natural, rich food content for ads, blogs, and branded projects.","Fresh, cinematic food stock that brings your content to life.",Enabled
+Keyword,photos.batlounis.com,,,,,food,food stock footage,,,,,,,,,,,,,,
+Keyword,photos.batlounis.com,,,,,food,food photography stock,,,,,,,,,,,,,,
+Keyword,photos.batlounis.com,,,,,food,aesthetic food visuals,,,,,,,,,,,,,,
+Keyword,photos.batlounis.com,,,,,food,stock media food content,,,,,,,,,,,,,,
+Keyword,photos.batlounis.com,,,,,food,food stock for marketers,,,,,,,,,,,,,,
+Keyword,photos.batlounis.com,,,,,food,curated food stock media,,,,,,,,,,,,,,

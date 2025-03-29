@@ -1,0 +1,16 @@
+story_slug,file_name,aspect_ratio,x_start_pct,y_start_pct,width_pct,height_pct,alt_text,reason,score,similar_to
+
+"food","1","IMG_0221.jpeg,IMG_0363.jpeg,IMG_0601.jpeg"
+"food","2","IMG_0603.jpeg,IMG_0613.jpeg,IMG_0868.jpeg"
+"food","3","IMG_1014.jpeg,IMG_1070.jpeg,IMG_1129.jpeg"
+"food","4","IMG_1132.jpeg,IMG_1175.jpeg,IMG_1297.jpeg"
+"food","5","IMG_1396.jpeg,IMG_1428.jpeg,IMG_1451.jpeg"
+"food","6","IMG_1636.jpeg,IMG_1869.jpeg,IMG_2260.jpeg"
+"food","7","IMG_6753.jpeg,IMG_7170.jpeg,IMG_7593.jpeg"
+"food","8","IMG_7614.jpeg,IMG_7700.jpeg,IMG_7751.jpeg"
+"food","9","IMG_7778.jpeg,IMG_7905.jpeg,IMG_7921.jpeg"
+"food","10","IMG_7943.jpeg,IMG_7965.jpeg,IMG_8030.jpeg"
+"food","11","IMG_8047.jpeg,IMG_8114.jpeg,IMG_8347.jpeg"
+"food","12","IMG_8371.jpeg,IMG_8381.jpeg,IMG_8483.jpeg"
+"food","13","IMG_8489.jpeg,IMG_8686.jpeg,IMG_9030.jpeg"
+"food","14","IMG_9322.jpeg,IMG_9342.jpeg,IMG_9589.jpeg"

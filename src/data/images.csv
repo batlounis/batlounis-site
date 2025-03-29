@@ -73,25 +73,6 @@ food,IMG_1396.jpeg,3:4,10,10,80,90,Fresh spinach salad with avocado and soft boi
 food,IMG_1428.jpeg,2:1,0,20,100,60,Steamed dumplings with greens on white plate,Horizontal crop suits the plate layout and creates visual balance with the dumplings.,8,IMG_1070.jpeg
 food,IMG_1451.jpeg,1:1,15,15,70,70,Jar of grated carrots on wooden cutting board in kitchen,Square crop centers on the jar with vibrant orange color and slight messiness for realism.,7,IMG_0603.jpeg
 food,IMG_1636.jpeg,3:2,5,10,90,80,Lentil soup served with whole grain bread on a shared table,Emphasizes social dining with symmetrical bowl placement and texture of the soup.,8,
-vintage,IMG_20190122_0009 (7)_Original.jpeg,3:2,10,15,80,70,Vintage photo of a child on shoulders at a religious procession with candles and olive branches,"Cropped to focus on the child, candles, and the ornate entrance, eliminating excess crowd while keeping symmetry.",8.5,IMG_20190122_0009 (21)_Original.jpeg
-vintage,IMG_20190122_0009 (10)_Original.jpeg,4:3,5,5,90,90,Three women by the lake in vintage dresses smiling and posing outdoors,Cropped to emphasize the women’s expressions and balance between foreground and background.,8.8,
-vintage,IMG_20190122_0009 (13)_Original.jpeg,2:1,0,20,100,60,Roman Forum ruins with ancient columns and buildings in the distance,A wide crop enhances the grandeur and historic depth of the Forum with a cinematic feel.,9.3,
-vintage,IMG_20190122_0009 (18)_Original.jpeg,3:4,20,5,60,90,Man playing chess in deep thought beside a sunlit wall,"Portrait-style crop captures mood, lighting, and focus of the chess player.",8.2,IMG_20190122_0009 (29)_Original.jpeg
-vintage,IMG_20190122_0009 (21)_Original.jpeg,5:4,5,10,90,80,Women decorating a Christmas tree with vintage ornaments indoors,Cropped for symmetry and to emphasize the festive activity at the center.,7.9,IMG_20190122_0009 (7)_Original.jpeg
-vintage,IMG_20190122_0009 (25)_Original.jpeg,3:2,10,5,80,90,Young woman sitting among pine trees in a vintage striped dress,Emphasizes solitude and the vertical rhythm of the trees surrounding the subject.,8.7,
-vintage,IMG_20190122_0009 (27)_Original.jpeg,16:9,0,30,100,50,Vintage train approaching in the distance with child watching from tracks,Wide panoramic crop to highlight the train tracks as leading lines and create cinematic tension.,9.5,
-vintage,IMG_20190122_0009 (28)_Original (1).jpeg,1:1,10,10,80,80,Children playing with a toy train in a hallway,"Square crop draws focus to the kids’ faces and toys, creating a nostalgic, centered scene.",8.4,
-vintage,IMG_20190122_0009 (28)_Original.jpeg,4:3,5,10,90,80,"Three men playing chess, deeply focused, with a time clock on a table",Balanced framing of the trio creates a visual triangle and storytelling composition.,8.6,IMG_20190122_0009 (18)_Original.jpeg
-vintage,IMG_20190122_0009 (29)_Original.jpeg,1:1,20,10,60,80,Vase with flowers on a vintage side table next to a wrapped gift,Centered crop isolates the floral composition and vintage texture on the wall.,7.5,IMG_20190122_0009 (18)_Original.jpeg
-vintage,IMG_20190122_0009 (32)_Original (1).jpeg,2:3,10,10,80,80,Vintage woman leaning out of a window in an old apartment building,Vertical crop emphasizes the height of the building and the central subject in the window.,8.3,
-vintage,IMG_20190122_0009 (32)_Original.jpeg,16:9,0,30,100,60,Aerial vintage view of a Mediterranean coastline,"Wide crop brings in coastal curves and horizon line, creating a cinematic panoramic effect.",9,
-vintage,IMG_20190122_0009 (36)_Original (1).jpeg,3:2,10,10,80,80,Two women gardening next to a stone wall in a village,Focuses on the action of the women while preserving rural texture of the wall and garden.,8.7,
-vintage,IMG_20190122_0009 (36)_Original.jpeg,2:1,0,20,100,60,People harvesting wildflowers on a hill under a cloudy sky,"Wide crop captures the sense of space, motion, and sky — balanced and poetic.",9.2,
-vintage,IMG_20190122_0009 (40)_Original.jpeg,3:4,10,5,80,90,Flamenco dancer performing on a boat surrounded by women and sailors,"Tall crop emphasizes the dramatic pose and dress of the dancer, preserving the vertical tension.",8.9,
-vintage,IMG_20190122_0009 (41)_Original.jpeg,4:3,5,5,90,90,Vintage hunting party with dog and rifles near an old car in Lebanon,Balanced crop to fit all characters and dog while showing nature and retro car details.,8.5,
-vintage,IMG_20190122_0009 (74)_Original.jpeg,16:9,0,20,100,60,Church and monastery buildings beneath snow-capped mountains and power lines,"Wide landscape crop balances nature, architecture, and industrial lines beautifully.",9.3,
-vintage,IMG_20190122_0009 (76)_Original.jpeg,3:2,10,10,80,80,Intense chess match between grandmasters Tal and Gligoric,"Focused crop draws attention to faces and intensity, while keeping crowd and labels readable.",9,
-vintage,IMG_20190122_0009 (80)_Original.jpeg,2:1,0,30,100,60,Mountain-top monastery on a cliff with a bright sky,A strong cinematic wide crop that emphasizes the cliff's height and architectural drama.,9.1,
 birds,_DSC3867-2_Original.jpeg,,0,19,100,81,Bird perched against a bright sky,"Cropped to 16:9, removing excess sky at the top to focus on the bird in the lower frame. This wide crop balances the composition, placing the bird near a lower-third focal point and emphasizing the open sky backdrop.",8,_DSC9420.jpeg; _DSC9422_Original.jpeg
 birds,_DSC4006_Original.jpeg,,0,0,100,100,Small bird perched amid foliage,"Maintained the original 3:2 frame as it already has a pleasing balance. The bird is slightly off-center, and keeping the full frame preserves the natural framing of surrounding branches, yielding a well-balanced composition.",8,DSC03714.jpeg; DSC04278.jpeg; DSC04395.jpeg
 birds,_DSC4686_Original.jpeg,,0,0,100,100,Songbird on a branch with green background,Kept at 3:2 since the original framing was strong. The bird is centrally positioned with natural framing from the environment. This crop retains all contextual elements while still highlighting the bird as the focal point.,7,_DSC4692_Original.jpeg; _DSC4697_Original.jpeg; _DSC4707_Original.jpeg; _DSC4713_Original.jpeg; _DSC4716_Original.jpeg
@@ -186,23 +167,67 @@ forest,IMG_4055.jpeg,3:2,0,5,100,90,Moody fog forest with dense trunks and glowi
 forest,IMG_4057.jpeg,2:3,0,0,100,100,Foggy forest clearing with tree silhouettes in soft winter light,Tall framing adds visual height and emphasizes vertical tree lines.,7,"IMG_4055.jpeg,_DSC9631_Original.jpeg"
 forest,IMG_20190504_120815.jpeg,3:4,0,0,100,100,Early spring trail with hikers walking under leafless tree canopy,Vertical crop emphasizes the human journey and long canopy view.,8,IMG_0736.jpeg
 forest,IMG_20191013_113229.jpeg,4:3,0,0,100,100,Colorful fall canopy with sunlight filtering through golden and orange leaves,Perfect composition preserved with warm seasonal tones filling the frame.,9,DSC_0201.jpeg
-"forest","_DSC1198_Original.jpeg","2:3","0","0","100","100","Dense winter forest with snow-covered trees in soft blue light","Tall framing suits the vertical tree structure and gives an immersive forest feel.","9","_DSC1226_Original.jpeg,_DSC1456_Original.jpeg"
-"forest","_DSC1226_Original.jpeg","3:4","0","0","100","100","Person walking in snow-covered forest under heavy cedar branches","The vertical orientation captures the towering trees and the solitude of the hiker.","8","_DSC1198_Original.jpeg,_DSC1456_Original.jpeg"
-"forest","_DSC1456_Original.jpeg","16:9","0","15","100","70","Snow-covered mountain path with hiker and soft sunlight in background","Wide crop enhances the vastness and leading lines created by the footprints.","9","_DSC1226_Original.jpeg,_DSC1198_Original.jpeg"
-"forest","_DSC1800_Original.jpeg","3:2","0","0","100","100","Autumn forest trail lined with colorful foliage and fallen leaves","Horizontal crop leads the eye down the path into the golden forest.","8","_DSC1818_Original.jpeg,_DSC1841_Original.jpeg"
-"forest","_DSC1818_Original.jpeg","2:1","0","5","100","60","Close-up view of mossy pine tree trunks in dense green forest","Ultra-wide crop emphasizes the repetition and symmetry of tree trunks.","8","_DSC1819_Original.jpeg,_DSC1800_Original.jpeg"
-"forest","_DSC1819_Original.jpeg","5:4","10","0","80","100","Person walking through forest path with golden light filtering through trees","Balanced vertical crop captures depth and leading path through tall pines.","8","_DSC1818_Original.jpeg,_DSC1822_Original.jpeg"
-"forest","_DSC1822_Original.jpeg","4:3","0","0","100","100","Winding forest trail curving between coniferous trees in early autumn","Classic landscape crop emphasizes curve of the trail and forest density.","7","_DSC1819_Original.jpeg,_DSC1860_Original.jpeg"
-"forest","_DSC1841_Original.jpeg","1:1","25","0","50","100","Balanced view down a forest path with autumn light and tree textures","Square crop creates symmetry and balances foliage density with open path.","7","_DSC1800_Original.jpeg,_DSC1822_Original.jpeg"
-"forest","_DSC1860_Original.jpeg","9:16","25","0","50","100","Tall vertical forest with winding gravel trail disappearing into trees","Tall crop emphasizes the towering forest and distant perspective of the trail.","8","_DSC1819_Original.jpeg,_DSC1822_Original.jpeg"
-"forest","_DSC3640-2_Original.jpeg","16:9","0","20","100","60","Cedar-covered mountain with snow patches and green rolling hills","Wide landscape format captures both sky and terrain for context and grandeur.","9",""
-"forest","_DSC8423_Original.jpeg","2:1","0","30","100","50","Twisted trees on rocky mountain slope in dense blue fog","Wide crop emphasizes the minimalist and atmospheric mood with strong leading slope line.","9","_DSC9917_Original.jpeg,IMG_4055.jpeg"
-"forest","_DSC9631_Original.jpeg","3:2","0","0","100","100","Snow-covered cedar tree branches in dramatic winter night lighting","Full-frame crop captures texture and abstract geometry of snow-covered limbs.","8","_DSC9917_Original.jpeg,IMG_4057.jpeg"
-"forest","_DSC9917_Original.jpeg","16:9","0","10","100","80","Foggy cedar forest with soft gradients of blue and green","Wide cinematic crop enhances the dreamy layering of forest shapes in fog.","9","_DSC8423_Original.jpeg,IMG_4055.jpeg"
-"forest","DSC_0201.jpeg","3:2","0","20","100","80","Sunset glow through tall pine forest with mountain silhouette","Balanced crop gives breathing room to foreground silhouettes and glowing sky.","8","IMG_20191013_113229.jpeg"
-"forest","DSC09599_Original.jpeg","16:9","0","15","100","70","Clouds rolling over lush green forested mountainside","Cinematic feel fits the drifting cloud motion and dense green contrast.","9","_DSC9917_Original.jpeg,IMG_4055.jpeg"
-"forest","IMG_0736.jpeg","4:3","0","10","100","90","River bend framed by autumn reeds and bare trees reflecting in water","Classic crop to preserve horizontal reflections and seasonal layering.","8","IMG_20190504_120815.jpeg"
-"forest","IMG_4055.jpeg","3:2","0","5","100","90","Moody fog forest with dense trunks and glowing mist","Crop balances depth with strong verticality and atmospheric mystery.","9","_DSC8423_Original.jpeg,_DSC9917_Original.jpeg"
-"forest","IMG_4057.jpeg","2:3","0","0","100","100","Foggy forest clearing with tree silhouettes in soft winter light","Tall framing adds visual height and emphasizes vertical tree lines.","7","IMG_4055.jpeg,_DSC9631_Original.jpeg"
-"forest","IMG_20190504_120815.jpeg","3:4","0","0","100","100","Early spring trail with hikers walking under leafless tree canopy","Vertical crop emphasizes the human journey and long canopy view.","8","IMG_0736.jpeg"
-"forest","IMG_20191013_113229.jpeg","4:3","0","0","100","100","Colorful fall canopy with sunlight filtering through golden and orange leaves","Perfect composition preserved with warm seasonal tones filling the frame.","9","DSC_0201.jpeg"
+vintage,IMG_20180918_0017_Original.jpeg,original,0,8.29,100,83.43,,,,
+vintage,IMG_20180211_0013_Original.jpeg,original,6.76,0,86.48,100,,,,
+vintage,IMG_20180211_0009_Original.jpeg,original,0,6.31,100,87.38,,,,
+vintage,IMG_20180918_0004_Original.jpeg,9:16,6.63,0,86.75,100,,,,
+vintage,IMG_20180916_0002_Original.jpeg,original,0,0,100,100,,,,
+vintage,IMG_20180915_0072_Original.jpeg,original,0,0,100,100,,,,
+vintage,IMG_20180915_0070_Original.jpeg,original,0,0,100,100,,,,
+vintage,IMG_20181015_0207_Original.jpeg,original,0,0,100,100,,,,
+vintage,IMG_20180915_0042_Original.jpeg,original,0,0,100,100,,,,
+vintage,IMG_20180916_0006_Original.jpeg,1:1,14.49,0,71.02,100,,,,
+vintage,IMG_20180908_0013_Original.jpeg,4:3,2.34,0,95.31,100,,,,
+vintage,IMG_20181015_0222_Original.jpeg,original,0,0,100,100,,,,
+vintage,IMG_20181011_0034_Original.jpeg,9:16,4.14,0,91.72,100,,,,
+vintage,IMG_20180919_0004_Original.jpeg,original,0,0,100,100,,,,
+vintage,IMG_20181013_0023_Original.jpeg,1:2,32.46,0,35.08,100,,,,
+vintage,IMG_20180919_0052_Original.jpeg,1:2,32.4,0,35.2,100,,,,
+vintage,IMG_20190122_0009 (41)_Original.jpeg,9:16,30.38,0,39.24,100,,,,
+vintage,IMG_20190122_0009 (43)_Original.jpeg,1:1,15.7,0,68.59,100,,,,
+vintage,IMG_20190122_0009 (36)_Original.jpeg,3:4,24.28,0,51.45,100,,,,
+vintage,IMG_20190122_0009 (30)_Original.jpeg,9:16,33.45,0,33.09,100,,,,
+vintage,IMG_20181011_0001_Original.jpeg,3:4,19.24,0,61.52,100,,,,
+vintage,IMG_20190122_0009 (25)_Original.jpeg,9:16,31.7,0,36.61,100,,,,
+vintage,IMG_20190122_0009 (27)_Original.jpeg,9:16,32.14,0,35.73,100,,,,
+vintage,IMG_20190122_0009 (18)_Original.jpeg,2:1,0,13.47,100,73.06,,,,
+vintage,IMG_20190122_0009 (10)_Original.jpeg,5:4,7.76,0,84.47,100,,,,
+vintage,IMG_20190122_0009 (5)_Original.jpeg,original,0,0,100,100,,,,
+vintage,IMG_20190122_0009 (18)_Original (1).jpeg,original,0,0,100,100,,,,
+vintage,IMG_20190122_0009 (43)_Original (1).jpeg,original,0,0,100,100,,,,
+vintage,IMG_20190122_0009 (72)_Original.jpeg,1:2,13.13,0,73.73,100,,,,
+vintage,IMG_20190122_0009 (40)_Original.jpeg,original,0,0,100,100,,,,
+vintage,IMG_20190122_0009 (39)_Original.jpeg,original,0,0,100,100,,,,
+vintage,IMG_20180915_0093_Original.jpeg,1:2,32.58,0,34.84,100,,,,
+vintage,IMG_20190122_0009 (74)_Original.jpeg,16:9,0,7.5,100,85.01,,,,
+vintage,IMG_20190122_0009 (83)_Original.jpeg,original,0,0,100,100,,,,
+vintage,IMG_20190122_0009 (79)_Original.jpeg,original,0,0,100,100,,,,
+vintage,IMG_20190122_0009 (80)_Original.jpeg,original,0,0,100,100,,,,
+vintage,IMG_20181013_0035.jpeg,3:2,0,5.18,100,89.64,,,,
+vintage,IMG_20180919_0080_Original.jpeg,original,0,0,100,100,,,,
+vintage,IMG_20181014_0067_Original.jpeg,original,0,0,100,100,,,,
+vintage,IMG_20181015_0309_Original.jpeg,16:9,0,31.21,100,37.57,,,,
+vintage,IMG_20190122_0009 (54)_Original.jpeg,original,0,0,100,100,,,,
+vintage,IMG_20190122_0009 (67)_Original.jpeg,3:4,0,5.63,100,88.75,,,,
+vintage,IMG_20190122_0009 (7)_Original.jpeg,original,0,0,100,100,,,,
+vintage,IMG_20190122_0009 (52)_Original.jpeg,original,0,0,100,100,,,,
+vintage,IMG_20180916_0015_Original.jpeg,9:16,6.94,0,86.12,100,,,,
+vintage,IMG_20180917_0010_Original.jpeg,1:1,17.81,0,64.38,100,,,,
+vintage,IMG_20180917_0008_Original.jpeg,original,0,0,100,100,,,,
+vintage,IMG_20190122_0009 (33)_Original.jpeg,original,0,0,100,100,,,,
+vintage,IMG_20190122_0009 (40)_Original (1).jpeg,original,0,0,100,100,,,,
+vintage,IMG_20190122_0009 (36)_Original (1).jpeg,1:1,15.63,0,68.75,100,,,,
+vintage,IMG_20190122_0009 (24)_Original.jpeg,original,0,0,100,100,,,,
+vintage,IMG_20190122_0009 (27)_Original (1).jpeg,original,0,0,100,100,,,,
+vintage,IMG_20190122_0009 (16)_Original.jpeg,9:16,31.21,0,37.57,100,,,,
+vintage,IMG_20190122_0009 (3)_Original.jpeg,original,0,0,100,100,,,,
+vintage,IMG_20190122_0009 (21)_Original.jpeg,original,0,0,100,100,,,,
+vintage,IMG_20180917_0006_Original.jpeg,original,0,0,100,100,,,,
+vintage,IMG_20180211_0007_Original.jpeg,original,0,0,100,100,,,,
+vintage,IMG_20180913_0035_Original.jpeg,original,0,0,100,100,,,,
+vintage,IMG_20180913_0048_Original.jpeg,original,0,0,100,100,,,,
+vintage,IMG_20180913_0016_Original.jpeg,1:1,15.16,0,69.69,100,,,,
+vintage,IMG_20180915_0068_Original.jpeg,original,0,0,100,100,,,,
+vintage,IMG_20180915_0065_Original.jpeg,original,0,7.99,100,84.01,,,,
+vintage,IMG_20180913_0052_Original.jpeg,original,0,0,100,100,,,,
+vintage,IMG_20180914_0011_Original.jpeg,original,0,0,100,100,,,,

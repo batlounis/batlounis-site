@@ -7,7 +7,6 @@ clouds,4,"_DSC9445_Original.jpeg,IMG_20200622_200917.jpeg",Urban landscapes at s
 clouds,6,IMG_20200907_103704.jpeg,A wide landscape image that works well as a standalone row.,9
 clouds,7,"IMG_20200907_113318.jpeg,IMG_20200908_123421.jpeg","All images feature open landscapes with a dramatic sky, complementing each other.",9
 clouds,8,"IMG_20200810_200931-EFFECTS.jpeg,IMG_20200810_201521.jpeg,IMG_20200731_192727.jpeg",Architectural shots with interesting angles and lighting.,8
-vintage,7,"IMG_20190122_0009 (36)_Original (1).jpeg,IMG_20190122_0009 (27)_Original.jpeg","Rustic scenes with human presence—gardening, hunting, and wildflower picking—all earthy and natural.",8.9
 winter,1,IMG_1724.jpeg,This wide panoramic image of the abstract icy lake pattern works beautifully on its own as a visually captivating intro.,9
 winter,2,"IMG_0773.jpeg,IMG_0431.jpeg,IMG_1035.jpeg",Three human-centered winter scenes with snow-covered urban or park areas. Strong seasonal story and perspective.,9
 winter,3,"IMG_2527.jpeg,IMG_1087.jpeg,IMG_1084.jpeg",These all show streets or sidewalks in winter with strong linear composition and moody atmospheres.,9
@@ -29,13 +28,6 @@ food,1,IMG_1175.jpeg,"The shrimp grilling shot is wide and dynamic—perfect to 
 food,2,"IMG_9030.jpeg,IMG_1129.jpeg,IMG_1132.jpeg","These three images offer vivid color and strong round plate framing, perfect harmony in tone and layout.",9
 food,3,"IMG_9342.jpeg,IMG_9322.jpeg,IMG_0221.jpeg","All three have a rustic, homely aesthetic with a warm feel—baking, breakfast, and freshly harvested roots.",8
 food,4,"IMG_9589.jpeg,IMG_0601.jpeg,IMG_0363.jpeg","Muted tones and textural focus tie these images together in a more neutral, tactile row.",7
-vintage,1,IMG_20190122_0009 (36)_Original.jpeg,A striking wide image with strong leading lines and depth; best as a standalone header.,9.5
-vintage,2,"IMG_20190122_0009 (10)_Original.jpeg,IMG_20190122_0009 (25)_Original.jpeg","These three feature people in candid or natural moments, with warm emotional tones and outdoor lighting.",8.8
-vintage,8,"IMG_20190122_0009 (40)_Original.jpeg,IMG_20190122_0009 (32)_Original (1).jpeg",Tall images with human emotion and rhythm: a dancer and a contemplative window gaze.,8.6
-vintage,3,"IMG_20190122_0009 (13)_Original.jpeg,IMG_20190122_0009 (21)_Original.jpeg",Historic Roman ruins paired with intimate indoor moments; a nice mix of architecture and human activity.,8.6
-vintage,4,"IMG_20190122_0009 (18)_Original.jpeg,IMG_20190122_0009 (28)_Original (1).jpeg,IMG_20190122_0009 (29)_Original.jpeg","All three are intimate, indoor scenes with strong framing and narrative: chess, childhood, and still life.",8.3
-vintage,5,IMG_20190122_0009 (80)_Original.jpeg,Stunning wide landscape of architecture and mountains makes a perfect intro image.,9.3
-vintage,6,"IMG_20190122_0009 (32)_Original.jpeg,IMG_20190122_0009 (76)_Original.jpeg",A mix of wide landscapes and intense scenes with strong horizontal lines and visual depth.,9.1
 birds,1,_DSC9680.jpeg,"This ultra-wide panoramic image stands on its own as a highlight, showcasing a bird in a sweeping landscape. Its dramatic 2:1 aspect ratio and cinematic feel make it a focal piece that draws the viewer in, so it’s presented solo for maximum impact.",9
 birds,2,"_DSC4707_Original.jpeg, _DSC4697_Original.jpeg,_DSC4692_Original.jpeg","A trio of small bird portraits with soft green backgrounds creates a harmonious row. All three images feature a similar subject (perched songbirds) and blurred foliage behind them, giving the row a consistent, gentle color palette. The compositions complement each other, and slight differences in the birds’ postures add interest without breaking visual unity.",8
 birds,3,"_DSC4686_Original.jpeg, _DSC4716_Original.jpeg","These three images continue the theme of birds among greenery. Each photo has a bird surrounded by natural habitat, and the tones and lighting are consistent. Placing them together maintains a cohesive look – the row feels balanced as each image has a similar scale and subject placement, which creates a pleasant rhythm across the trio.",8
@@ -67,11 +59,16 @@ forest,1,DSC09599_Original.jpeg,Cinematic panoramic view of clouds on forested s
 forest,2,"_DSC8423_Original.jpeg,_DSC9917_Original.jpeg,IMG_4055.jpeg",Fog-drenched atmospheres and greenish hues with strong tree forms create visual coherence.,9
 forest,3,"_DSC9631_Original.jpeg,IMG_4057.jpeg,IMG_0736.jpeg","Cool-toned forest images with vertical elements and mist, maintaining a mysterious ambiance.",8
 forest,4,"IMG_20190504_120815.jpeg,DSC_0201.jpeg,IMG_20191013_113229.jpeg",Seasonal forest paths and treetop colors with a journey-oriented composition.,8
-"forest","1","_DSC3640-2_Original.jpeg","Cinematic wide mountain scene fits well as a standalone row due to its 16:9 ratio and landscape scope.","9"
-"forest","2","_DSC1456_Original.jpeg,_DSC1226_Original.jpeg,_DSC1198_Original.jpeg","Snowy forest theme with strong vertical elements and a human presence; great balance of narrative and texture.","9"
-"forest","3","_DSC1800_Original.jpeg,_DSC1841_Original.jpeg,_DSC1818_Original.jpeg","All are forest scenes with rich greens and autumn tones; strong visual continuity through the trees and foliage.","8"
-"forest","4","_DSC1819_Original.jpeg,_DSC1822_Original.jpeg,_DSC1860_Original.jpeg","Deep forest compositions with vertical lines and winding trails, visually coherent and rhythmically balanced.","8"
-"forest","1","DSC09599_Original.jpeg","Cinematic panoramic view of clouds on forested slope works best as a standalone wide scene.","9"
-"forest","2","_DSC8423_Original.jpeg,_DSC9917_Original.jpeg,IMG_4055.jpeg","Fog-drenched atmospheres and greenish hues with strong tree forms create visual coherence.","9"
-"forest","3","_DSC9631_Original.jpeg,IMG_4057.jpeg,IMG_0736.jpeg","Cool-toned forest images with vertical elements and mist, maintaining a mysterious ambiance.","8"
-"forest","4","IMG_20190504_120815.jpeg,DSC_0201.jpeg,IMG_20191013_113229.jpeg","Seasonal forest paths and treetop colors with a journey-oriented composition.","8"
+vintage,1,"IMG_20180918_0017_Original.jpeg, IMG_20180211_0013_Original.jpeg",,
+vintage,2,"IMG_20190122_0009 (5)_Original.jpeg, IMG_20190122_0009 (18)_Original (1).jpeg",,
+vintage,3,"IMG_20180211_0009_Original.jpeg, IMG_20180918_0004_Original.jpeg",,
+vintage,4,"IMG_20180916_0002_Original.jpeg, IMG_20180915_0072_Original.jpeg, IMG_20180915_0070_Original.jpeg",,
+vintage,5,"IMG_20181015_0207_Original.jpeg, IMG_20180915_0042_Original.jpeg",,
+vintage,6,"IMG_20190122_0009 (27)_Original.jpeg, IMG_20190122_0009 (18)_Original.jpeg, IMG_20190122_0009 (10)_Original.jpeg",,
+vintage,7,"IMG_20180916_0006_Original.jpeg, IMG_20180908_0013_Original.jpeg",,
+vintage,8,"IMG_20181015_0222_Original.jpeg, IMG_20181011_0034_Original.jpeg",,
+vintage,9,IMG_20180919_0004_Original.jpeg,,
+vintage,10,"IMG_20181013_0023_Original.jpeg, IMG_20180919_0052_Original.jpeg, IMG_20190122_0009 (41)_Original.jpeg",,
+vintage,11,"IMG_20190122_0009 (43)_Original.jpeg, IMG_20190122_0009 (36)_Original.jpeg",,
+vintage,12,"IMG_20190122_0009 (30)_Original.jpeg, IMG_20181011_0001_Original.jpeg, IMG_20190122_0009 (25)_Original.jpeg",,
+vintage,13,"IMG_20190122_0009 (43)_Original (1).jpeg, IMG_20190122_0009 (72)_Original.jpeg",,
