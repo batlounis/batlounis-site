@@ -10,6 +10,10 @@ module.exports = function(eleventyConfig) {
       .sort((a, b) => a.row - b.row);
   });
 
+  eleventyConfig.addFilter("filterImagesBySlug", function(images, slug) {
+    return images.filter(image => image.story_slug === slug);
+  });
+
   eleventyConfig.addFilter("findPhotoByFile", (photos, storySlug, fileName) => {
     return (
       photos.find(
@@ -17,12 +21,14 @@ module.exports = function(eleventyConfig) {
       ) || {}
     );
   });
+  
 
   eleventyConfig.addCollection("stories", collection => {
     return collection.getAll().filter(item =>
       item.data.layout === "layout.njk" &&
       item.data.story && // from pagination alias
-      item.url.startsWith("/stories/")
+      item.url.startsWith("/stories/") &&
+      !item.url.includes("/dev/") // Exclude dev pages
     );
   });
 

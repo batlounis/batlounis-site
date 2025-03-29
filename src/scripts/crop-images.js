@@ -201,8 +201,8 @@ async function cropAndResizeMedia(SLUG_FILTER) {
 
   if (SLUG_FILTER) {
     console.log(`🔍 Processing slug: ${SLUG_FILTER}`);
-    await mergeCsvsWithSlug(SLUG_FILTER, 'grid');
-    await mergeCsvsWithSlug(SLUG_FILTER, 'images');
+    // await mergeCsvsWithSlug(SLUG_FILTER, 'grid');
+    // await mergeCsvsWithSlug(SLUG_FILTER, 'images');
   }
 
   await cropAndResizeMedia(SLUG_FILTER);

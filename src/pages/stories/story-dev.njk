@@ -1,0 +1,425 @@
+---
+layout: "layout.njk"
+
+pagination:
+  data: stories
+  size: 1
+  alias: story
+  addAllPagesToCollections: true
+permalink: "/stories/{{ story.slug }}/dev/index.html"
+---
+
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+
+<main class="text-center mt-16 px-6">
+  <p class="text-sm tracking-widest text-gray-600 uppercase">{{ subtitle }}</p>
+  <h2 class="text-5xl md:text-6xl tracking-tight font-bold mt-4">
+      {{ story.title | safe }}
+  </h2>
+  <p class="mt-2 text-base tracking-tight text-black max-w-md mx-auto leading-snug">
+      {{ story.description | safe }}
+  </p>
+</main>
+
+<section class="sortable-row-container space-y-1 sm:space-y-2 md:space-y-4 mt-16 px-4 max-w-6xl mx-auto">
+    {% set storyGrid = grid | filterBySlug(story.slug) %}
+    
+    {% for row in storyGrid %}
+      <div class="sortable-row" data-row-index="{{ loop.index }}">
+        <div class="sortable-row-handle cursor-move mb-2">Drag to reorder</div>
+        <div class="flex items-start space-x-1 sm:space-x-2 md:space-x-4 photo-row">
+          {% for img in row.images %}
+            {% set photo = images | findPhotoByFile(story.slug, img.filename) %}
+            {% set crop = photo.crop or { x: 0, y: 0, width: 100, height: 100 } %}
+            <div 
+              class="w-[{{ img.widthPercent }}%]" 
+              data-filename="{{ img.filename }}" 
+              data-aspect="original"
+              style="{% if crop.width != 100 or crop.height != 100 %}aspect-ratio: {{ (crop.width / crop.height) | round(4) }}; height: auto;{% endif %}"
+              data-crop='{"x": {{ crop.x | round(2) }}, "y": {{ crop.y | round(2) }}, "width": {{ crop.width | round(2) }}, "height": {{ crop.height | round(2) }} }'>
+              {% set ext = img.filename.slice(-3) | lower %}
+              {% if ext in ['mp4', 'mov', 'webm'] %}
+                <a 
+                  href="#!" 
+                  class="lightbox-trigger" 
+                  data-cropped-src="/assets/images/{{ story.slug }}/{{ img.filename }}"
+                  data-original-src="/assets/images/{{ story.slug }}/{{ img.filename }}"
+                  data-filename="{{ img.filename }}"
+                  data-alt="{{ photo.alt_text | escape }}">
+                  <video 
+                    class="w-full h-auto object-cover rounded-md cursor-zoom-in shadow-md"
+                    src="/assets/images/{{ story.slug }}/{{ img.filename }}"
+                    autoplay muted loop playsinline
+                    style="{% if crop.width != 100 or crop.height != 100 %}aspect-ratio: {{ (crop.width / crop.height) | round(4) }}; height: auto;{% endif %}"
+                  ></video>
+                </a>
+              {% else %}
+                <a 
+                  href="#!" 
+                  class="lightbox-trigger" 
+                  data-cropped-src="/assets/images/{{ story.slug }}/{{ img.filename }}"
+                  data-original-src="/assets/images/{{ story.slug }}/{{ img.filename }}"
+                  data-filename="{{ img.filename }}"
+                  data-alt="{{ photo.alt_text | escape }}">
+                  <img 
+                    class="w-full h-auto object-cover rounded-md cursor-zoom-in shadow-md"
+                    src="/assets/images/{{ story.slug }}/{{ img.filename }}"
+                    alt="{{ photo.alt_text }}"
+                    style="{% if crop.width != 100 or crop.height != 100 %}aspect-ratio: {{ (crop.width / crop.height) | round(4) }}; height: auto;{% endif %}"
+                  >
+                </a>
+              {% endif %}
+              {% if photo.alt_text %}
+                <p class="grid-caption text-sm text-gray-600 italic mt-2 hidden">{{ img.filename }} - {{ photo.alt_text }}</p>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </section>
+
+<div class="mt-12 px-4 max-w-6xl mx-auto">
+  <h3 class="text-lg font-semibold mb-4">Current Grid Layout</h3>
+  <table class="w-full text-left border-collapse table-auto text-sm" id="grid-table">
+    <thead>
+      <tr class="border-b border-gray-300">
+        <th class="py-2 pr-4 font-medium">Story Slug</th>
+        <th class="py-2 pr-4 font-medium">Row</th>
+        <th class="py-2 pr-4 font-medium">Images</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in storyGrid %}
+        <tr class="border-b border-gray-200">
+          <td class="py-2 pr-4">{{ story.slug }}</td>
+          <td class="py-2 pr-4 align-top">{{ loop.index }}</td>
+          <td class="py-2 pr-4">
+            {% for img in row.images %}
+              {{ img.filename }}{% if not loop.last %}, {% endif %}
+            {% endfor %}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <button onclick="copyTableToClipboard('grid-table')" class="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
+    Copy Grid Layout (no header)
+  </button>
+
+  <h3 class="text-lg font-semibold mb-4 mt-12">Current Crop Data</h3>
+  <table id="crop-table" class="w-full text-left border-collapse table-auto text-sm">
+    <thead>
+      <tr class="border-b border-gray-300">
+        <th class="py-2 pr-4 font-medium">Story Slug</th>
+        <th class="py-2 pr-4 font-medium">Filename</th>
+        <th class="py-2 pr-4 font-medium">Aspect Ratio</th>
+        <th class="py-2 pr-4 font-medium">X Start (%)</th>
+        <th class="py-2 pr-4 font-medium">Y Start (%)</th>
+        <th class="py-2 pr-4 font-medium">Width (%)</th>
+        <th class="py-2 pr-4 font-medium">Height (%)</th>
+        <th class="py-2 pr-4 font-medium">Alt Text</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+  <button onclick="copyTableToClipboard('crop-table')" class="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
+    Copy Crop Data (no header)
+  </button>
+</div>
+
+<div id="lightbox" class="fixed inset-0 bg-black/80 flex items-center justify-center hidden z-50 px-4">
+  <div class="text-center">
+    <img id="lightbox-img" src="" alt="" class="max-h-[80vh] max-w-[90vw] rounded shadow-lg mx-auto">
+    <video id="lightbox-video" class="hidden max-w-full max-h-[90vh]" autoplay muted loop playsinline></video>
+    <p id="lightbox-caption" class="mt-4 text-white italic text-sm"></p>
+
+    <button 
+      id="lightbox-buy"
+      data-open-license-form
+      class="inline-block mt-4 bg-yellow-400 hover:bg-yellow-300 text-black font-semibold py-2 px-4 rounded transition duration-150"
+      data-photo-filename=""
+    >
+      Buy License
+    </button>
+  </div>
+  <button id="lightbox-close" class="absolute top-4 right-6 text-white text-3xl font-bold">&times;</button>
+</div>
+
+
+<script>
+  function recalculateWidths(row) {
+    const imagesWithRatios = [...row.children].map(el => {
+      const media = el.querySelector('img, video');
+      const rect = media.getBoundingClientRect();
+      return {
+        el,
+        aspectRatio: rect.width / rect.height
+      };
+    });
+
+    const totalRatio = imagesWithRatios.reduce((sum, img) => sum + img.aspectRatio, 0);
+
+    imagesWithRatios.forEach(img => {
+      const widthPercent = (img.aspectRatio / totalRatio * 100).toFixed(2);
+      img.el.style.width = widthPercent + '%';
+    });
+  }
+
+  function updateGridTable() {
+    const tableBody = document.querySelector('table tbody');
+    tableBody.innerHTML = '';
+    document.querySelectorAll('.photo-row').forEach((row, rowIndex) => {
+      const rowEl = document.createElement('tr');
+      rowEl.className = 'border-b border-gray-200';
+
+      const storySlugTd = document.createElement('td');
+      storySlugTd.className = 'py-2 pr-4';
+      storySlugTd.textContent = "{{ story.slug }}";
+      rowEl.appendChild(storySlugTd);
+
+      const indexTd = document.createElement('td');
+      indexTd.className = 'py-2 pr-4 align-top';
+      indexTd.textContent = rowIndex + 1;
+
+      const imagesTd = document.createElement('td');
+      imagesTd.className = 'py-2 pr-4';
+      const filenames = [...row.children].map(el => el.dataset.filename).join(', ');
+      imagesTd.textContent = filenames;
+
+      rowEl.appendChild(indexTd);
+      rowEl.appendChild(imagesTd);
+      tableBody.appendChild(rowEl);
+    });
+  }
+
+  function updateCropTable() {
+    const tableBody = document.querySelector('#crop-table tbody');
+    tableBody.innerHTML = '';
+    const storySlug = "{{ story.slug }}";
+
+    document.querySelectorAll('.photo-row > div[data-filename]').forEach(container => {
+      const filename = container.dataset.filename;
+      const crop = container.dataset.crop 
+        ? JSON.parse(container.dataset.crop)
+        : { x: 0, y: 0, width: 100, height: 100 };
+      const aspectRatio = container.dataset.aspect;
+      const media = container.querySelector('img, video');
+      const altText = media ? media.getAttribute('alt') : '';
+
+      const rowEl = document.createElement('tr');
+      rowEl.className = 'border-b border-gray-200';
+
+      const storySlugTd = document.createElement('td');
+      storySlugTd.className = 'py-2 pr-4';
+      storySlugTd.textContent = storySlug;
+      rowEl.appendChild(storySlugTd);
+
+      const filenameTd = document.createElement('td');
+      filenameTd.className = 'py-2 pr-4';
+      filenameTd.textContent = filename;
+      rowEl.appendChild(filenameTd);
+
+      const aspectRatioTd = document.createElement('td');
+      aspectRatioTd.className = 'py-2 pr-4';
+      aspectRatioTd.textContent = aspectRatio;
+      rowEl.appendChild(aspectRatioTd);
+
+      ['x', 'y', 'width', 'height'].forEach(key => {
+        const td = document.createElement('td');
+        td.className = 'py-2 pr-4';
+        td.textContent = crop[key].toFixed(2);
+        rowEl.appendChild(td);
+      });
+
+      const altTextTd = document.createElement('td');
+      altTextTd.className = 'py-2 pr-4';
+      altTextTd.textContent = altText;
+      rowEl.appendChild(altTextTd);
+
+      tableBody.appendChild(rowEl);
+    });
+  }
+
+  function copyTableToClipboard(tableId) {
+    const rows = Array.from(document.querySelectorAll(`#${tableId} tbody tr`));
+    const data = rows.map(row => {
+      return Array.from(row.querySelectorAll('td'))
+        .map(cell => cell.textContent.trim())
+        .join('\t');
+    }).join('\n');
+    navigator.clipboard.writeText(data).then(() => {
+      alert('Table copied to clipboard!');
+    }).catch(err => {
+      console.error('Failed to copy table:', err);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.photo-row').forEach(row => {
+      new Sortable(row, {
+        group: 'shared',
+        animation: 150,
+        onEnd: function (evt) {
+          const sourceRow = evt.from;
+          const targetRow = evt.to;
+          const newOrder = [...targetRow.children].map(el => el.dataset.filename);
+          
+          recalculateWidths(sourceRow);
+          recalculateWidths(targetRow);
+
+          console.log('Moved from one row to another');
+          console.log('Target row new order:', newOrder);
+          updateGridTable();
+          updateCropTable();
+
+          // Log all row orders
+          document.querySelectorAll('.photo-row').forEach((r, index) => {
+            const rowOrder = [...r.children].map(el => el.dataset.filename);
+            console.log(`Row ${index + 1} order:`, rowOrder);
+          });
+        }
+      });
+    });
+
+    new Sortable(document.querySelector('.sortable-row-container'), {
+      animation: 150,
+      handle: '.sortable-row-handle',
+      onEnd: function (evt) {
+        updateGridTable();
+        updateCropTable();
+      }
+    });
+
+    function insertDropZones() {
+      document.querySelectorAll('.sortable-row').forEach(row => {
+        const dropZone = document.createElement('div');
+        dropZone.className = 'drop-zone h-6 bg-gray-200 my-2 rounded-md';
+        dropZone.style.minHeight = '20px';
+        row.insertAdjacentElement('beforebegin', dropZone);
+      });
+    }
+    insertDropZones();
+
+    document.querySelectorAll('.drop-zone').forEach(dropZone => {
+      dropZone.addEventListener('dragover', function (event) {
+        event.preventDefault();
+        dropZone.classList.add('bg-blue-300'); // Highlight when hovering
+      });
+
+      dropZone.addEventListener('dragleave', function () {
+        dropZone.classList.remove('bg-blue-300');
+      });
+
+      dropZone.addEventListener('drop', function (event) {
+        event.preventDefault();
+        dropZone.classList.remove('bg-blue-300');
+
+      const draggedEl = document.querySelector('.sortable-chosen') || document.querySelector('.sortable-drag');
+      if (draggedEl) {
+        // Remove dragged element from its old parent
+        draggedEl.parentNode.removeChild(draggedEl);
+        const newRow = document.createElement('div');
+          newRow.className = 'sortable-row';
+          newRow.innerHTML = `
+            <div class="sortable-row-handle cursor-move mb-2">Drag to reorder</div>
+            <div class="flex items-start space-x-1 sm:space-x-2 md:space-x-4 photo-row">
+            </div>
+          `;
+
+          const photoRow = newRow.querySelector('.photo-row');
+          photoRow.appendChild(draggedEl);
+
+          dropZone.insertAdjacentElement('afterend', newRow);
+          
+          // Create a new drop zone after the new row
+          const newDropZone = document.createElement('div');
+          newDropZone.className = 'drop-zone h-6 bg-gray-200 my-2 rounded-md';
+          newDropZone.style.minHeight = '20px';
+          newRow.insertAdjacentElement('afterend', newDropZone);
+
+          // Reinitialize Sortable for the new row
+          new Sortable(photoRow, {
+            group: 'shared',
+            animation: 150,
+            onEnd: function (evt) {
+              recalculateWidths(evt.from);
+              recalculateWidths(evt.to);
+              updateGridTable();
+              updateCropTable();
+            }
+          });
+
+          updateGridTable();
+          updateCropTable();
+        }
+      });
+    });
+
+    const aspectRatios = ['original', '1:1', '4:3', '3:4', '16:9', '9:16', '3:2', '2:3', '2:1', '1:2', '5:4'];
+
+    function parseAspectRatio(ratio) {
+      const [w, h] = ratio.split(':').map(Number);
+      return w / h;
+    }
+
+    function rotateAspectRatio(container) {
+      const current = container.dataset.aspect || 'original';
+      const idx = aspectRatios.indexOf(current);
+      const next = aspectRatios[(idx + 1) % aspectRatios.length];
+      container.dataset.aspect = next;
+
+      const media = container.querySelector('img, video');
+      if (!media) return;
+
+      if (next === 'original') {
+        media.style.aspectRatio = '';
+        media.style.height = '';
+        container.dataset.crop = JSON.stringify({ x: 0, y: 0, width: 100, height: 100 });
+      } else {
+        const ratio = parseAspectRatio(next);
+        media.style.aspectRatio = ratio;
+        media.style.height = 'auto';
+
+        const originalRatio = media.naturalWidth / media.naturalHeight;
+        let crop;
+
+        if (ratio > originalRatio) {
+          // Aspect ratio is wider than original
+          const cropWidth = 100;
+          const cropHeight = (originalRatio / ratio) * 100;
+          const yOffset = (100 - cropHeight) / 2;
+          crop = { x: 0, y: yOffset, width: cropWidth, height: cropHeight };
+        } else {
+          // Aspect ratio is taller than original
+          const cropHeight = 100;
+          const cropWidth = (ratio / originalRatio) * 100;
+          const xOffset = (100 - cropWidth) / 2;
+          crop = { x: xOffset, y: 0, width: cropWidth, height: cropHeight };
+        }
+
+        container.dataset.crop = JSON.stringify(crop);
+      }
+
+      updateCropTable();
+    }
+
+    document.querySelectorAll('.photo-row > div[data-filename]').forEach(container => {
+      container.addEventListener('click', e => {
+        rotateAspectRatio(container);
+        const row = container.closest('.photo-row');
+        recalculateWidths(row);
+        row.querySelectorAll('img, video').forEach(media => {
+          media.style.height = 'auto';
+        });
+      });
+    });
+
+    updateGridTable();
+    updateCropTable();
+    // Normalize widths for all photo rows based on initial aspect ratios
+    document.querySelectorAll('.photo-row').forEach(recalculateWidths);
+  });
+</script>
+</file>
